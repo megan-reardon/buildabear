@@ -26,27 +26,40 @@ header {
 .outfit-option-container {
   border: 2px solid pink;
   grid-area: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hats {
   border: 2px solid blue;
+  flex-basis: 25%
 }
 
 .clothes {
   border: 2px solid green;
+  flex-basis: 25%;
 }
 
 .accessories {
   border: 2px solid lightblue;
+  flex-basis: 25%;
 }
 
 .backgrounds {
   border: 2px solid orange;
+  flex-basis: 25%;
 }
 
 .dressing-room {
   border: 2px solid purple;
   grid-area: middle;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .bear-outfit-container {
