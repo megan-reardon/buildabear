@@ -1,0 +1,54 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Sintony', sans-serif;
+}
+
+header {
+ border: 2px solid red;
+}
+
+.outfit-option-container {
+  border: 2px solid pink;
+}
+
+.hats {
+  border: 2px solid blue;
+}
+
+.clothes {
+  border: 2px solid green;
+}
+
+.accessories {
+  border: 2px solid lightblue;
+}
+
+.backgrounds {
+  border: 2px solid orange;
+}
+
+.dressing-room {
+  border: 2px solid purple;
+}
+
+.bear-outfit-container {
+  border: 2px solid black;
+}
+
+.closet-container {
+  border: 2px solid yellow;
+}
+
+.saved-outfit {
+  border: 2px solid limegreen;
+}
+
+
+
+/*  */
