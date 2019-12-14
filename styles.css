@@ -6,15 +6,26 @@
 }
 
 body {
+  border: 2px solid darkgreen;
+  display: grid;
   font-family: 'Sintony', sans-serif;
+  grid-gap: 10px;
+  grid-template-areas:
+  "header header header"
+  "left middle right";
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 9fr;
+  height: 750px;
 }
 
 header {
  border: 2px solid red;
+ grid-area: header;
 }
 
 .outfit-option-container {
   border: 2px solid pink;
+  grid-area: left;
 }
 
 .hats {
@@ -35,14 +46,17 @@ header {
 
 .dressing-room {
   border: 2px solid purple;
+  grid-area: middle;
 }
 
 .bear-outfit-container {
-  border: 2px solid black;
+  border: 2px solid hotpink;
+  height: 550px;
 }
 
 .closet-container {
   border: 2px solid yellow;
+  grid-area: right;
 }
 
 .saved-outfit {
