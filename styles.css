@@ -75,13 +75,22 @@ form {
   height: 550px;
 }
 
+.saved-outfit-card {
+  border: 2px solid grey;
+}
+
 .closet-container {
   border: 2px solid yellow;
   grid-area: right;
+  display: flex;
+  flex-direction: column;
 }
 
 .saved-outfit {
   border: 2px solid limegreen;
+display: flex;
+flex-direction: column;
+flex-basis: 100%;
 }
 
 
