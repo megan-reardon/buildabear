@@ -8,24 +8,24 @@
   </head>
   <body>
     <header>
-      <h1>Build A Bear</h1>
+      <h1>Build a Bear</h1>
     </header>
     <section class="outfit-option-container">
       <section class="hats">
-        <h3>Hats</h3>
+        <h2>Hats</h2>
         <button type="button" name="top-hat">Top hat</button>
         <button type="button" name="sun-hat">Sun hat</button>
         <button type="button" name="bow">Bow</button>
         <button type="button" name="crown">Crown</button>
       </section>
       <section class="clothes">
-        <h3>Clothes</h3>
+        <h2>Clothes</h2>
         <button type="button" name="t-shirt">T-shirt</button>
         <button type="button" name="dress">Dress</button>
         <button type="button" name="tuxedo">Tuxedo</button>
       </section>
       <section class="accessories">
-        <h3>Accessories</h3>
+        <h2>Accessories</h2>
         <button type="button" name="necklace">Necklace</button>
         <button type="button" name="bow-tie">Bowtie</button>
         <button type="button" name="watch">Watch</button>
@@ -33,7 +33,7 @@
         <button type="button" name="earrings">Earrings</button>
       </section>
       <section class="backgrounds">
-        <h3>Backgrounds</h3>
+        <h2>Backgrounds</h2>
         <button type="button" name="blue">Blue</button>
         <button type="button" name="park">Park</button>
         <button type="button" name="beach">Beach</button>
@@ -44,10 +44,11 @@
     </section>
     <section class="dressing-room">
       <div class="bear-outfit-container">
+        <img class="bear" src="./assets/bear.png" alt="bear"/>
       </div>
       <form>
-        <input type="text" name="outfit-name" value="name this outfit">
-        <button type="submit" name="save-button">save</button>
+        <input type="text" name="outfit-name" value="Name this Outfit">
+        <button id="save-button" type="submit" name="save-button">save</button>
       </form>
     </section>
     <section class="closet-container">
@@ -58,7 +59,7 @@
         </div>
         <div class= "saved-outfit-card">
           <p>Movie Night</p>
-        </div>  
+        </div>
       </section>
     </section>
   <script src="./main.js"</script>
