@@ -76,10 +76,19 @@ button:hover {
 }
 
 .dressing-room {
-  border: 2px solid purple;
   grid-area: middle;
   display: flex;
   flex-direction: column;
+}
+
+.bear-outfit-container {
+  height: 550px;
+  display: flex;
+  justify-content: center;
+}
+
+.bear {
+  height: 90%;
 }
 
 form {
@@ -113,10 +122,7 @@ text-transform: uppercase;
 font-weight: bold;
 }
 
-.bear-outfit-container {
-  border: 2px solid hotpink;
-  height: 550px;
-}
+
 
 .saved-outfit-card {
   border: 2px solid grey;
