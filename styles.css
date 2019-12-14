@@ -19,34 +19,55 @@ body {
 }
 
 header {
- border: 2px solid red;
- grid-area: header;
+  border: 2px solid red;
+  grid-area: header;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .outfit-option-container {
   border: 2px solid pink;
   grid-area: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hats {
   border: 2px solid blue;
+  flex-basis: 25%
 }
 
 .clothes {
   border: 2px solid green;
+  flex-basis: 25%;
 }
 
 .accessories {
   border: 2px solid lightblue;
+  flex-basis: 25%;
 }
 
 .backgrounds {
   border: 2px solid orange;
+  flex-basis: 25%;
 }
 
 .dressing-room {
   border: 2px solid purple;
   grid-area: middle;
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 17%;
+  justify-content: center;
 }
 
 .bear-outfit-container {
@@ -54,13 +75,22 @@ header {
   height: 550px;
 }
 
+.saved-outfit-card {
+  border: 2px solid grey;
+}
+
 .closet-container {
   border: 2px solid yellow;
   grid-area: right;
+  display: flex;
+  flex-direction: column;
 }
 
 .saved-outfit {
   border: 2px solid limegreen;
+display: flex;
+flex-direction: column;
+flex-basis: 100%;
 }
 
 
