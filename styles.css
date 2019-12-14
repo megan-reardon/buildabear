@@ -19,9 +19,9 @@ body {
 }
 
 header {
- border: 2px solid red;
- grid-area: header;
- display: flex;
+  border: 2px solid red;
+  grid-area: header;
+  display: flex;
   justify-content: space-around;
   align-items: center;
 }
@@ -57,12 +57,17 @@ header {
 .dressing-room {
   border: 2px solid purple;
   grid-area: middle;
+  display: flex;
+  flex-direction: column;
 }
 
 form {
+  border: 2px solid red;
   display: flex;
   align-items: center;
   flex-direction: column;
+  flex-basis: 17%;
+  justify-content: center;
 }
 
 .bear-outfit-container {
