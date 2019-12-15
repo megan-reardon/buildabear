@@ -70,7 +70,6 @@ button:hover {
 .clothes,
 .accessories,
 .backgrounds {
-  /* border: 2px solid blue; */
   flex-basis: 22%;
   background-color: white;
   border-radius: 10px;
