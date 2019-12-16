@@ -7,7 +7,6 @@
 }
 
 body {
-  border: 2px solid darkgreen;
   display: grid;
   font-family: 'Sintony', sans-serif;
   grid-gap: 15px;
@@ -91,6 +90,8 @@ button:hover {
   height: 550px;
   display: flex;
   justify-content: center;
+  position: relative;
+  padding-top: 6%;
 }
 
 .bear {
@@ -99,6 +100,11 @@ button:hover {
 
 #top-hat {
   height: 94px;
+  position: absolute;
+  background: none;
+  top: 7%;
+  transform: rotate(25deg);
+  right: 37%;
 }
 
 form {

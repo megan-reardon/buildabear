@@ -9,7 +9,6 @@ saveButton.addEventListener('click', saveOutfit);
 garmentOptions.addEventListener('click', indicateActivateButton);
 hatSection.addEventListener('click', hatConditionals);
 
-
 function saveOutfit() {
   event.preventDefault();
   closet.insertAdjacentHTML('afterbegin', `
@@ -63,7 +62,5 @@ function addCrown(event) {
   }
 }
 
-
-
-
 //
+
