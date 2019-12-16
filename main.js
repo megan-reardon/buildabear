@@ -38,16 +38,19 @@ function hatConditionals() {
   addSunHat(event);
   addHairBow(event);
   addCrown(event);
+  addHelmet(event);
 }
 
 function clothesConditionals() {
   addDress(event);
+  addVest(event);
 }
 
 function accessoriesConditionals() {
   addNecklace(event);
   addBowTie(event);
   addWatch(event);
+  addSunnies(event);
 }
 
 function backgroundsConditionals() {
@@ -85,6 +88,13 @@ function addCrown(event) {
   }
 }
 
+function addHelmet(event) {
+  var helmet = document.querySelector('#helmet');
+  if (event.target.innerText === 'Helmet') {
+    helmet.classList.toggle('hidden');
+  }
+}
+
 function addDress(event) {
   var dress = document.querySelector('#dress');
   if (event.target.innerText === 'Dress') {
@@ -92,10 +102,24 @@ function addDress(event) {
   }
 }
 
+function addVest(event) {
+  var vest = document.querySelector('#vest');
+  if (event.target.innerText === 'Vest') {
+    vest.classList.toggle('hidden');
+  }
+}
+
 function addNecklace(event) {
   var necklace = document.querySelector('#necklace');
   if (event.target.innerText === 'Necklace') {
     necklace.classList.toggle('hidden');
+  }
+}
+
+function addSunnies(event) {
+  var sunnies = document.querySelector('#sunnies');
+  if (event.target.innerText === 'Sunnies') {
+    sunnies.classList.toggle('hidden');
   }
 }
 
