@@ -99,7 +99,7 @@ button:hover {
 }
 
 #top-hat {
-  height: 21%;
+  height: 94px;
   position: absolute;
   background: none;
   top: 7%;
@@ -178,5 +178,8 @@ p {
   height: 1em;
 }
 
+.hidden {
+  display: none;
+}
 
 /*  */
