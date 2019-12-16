@@ -50,12 +50,18 @@ button {
   color: white;
   /* box-shadow: 2px 0px 27px 1px rgba(114,114,114,0.64); */
   border: 1px solid #007090;
+  outline: none;
 }
 
 button:hover {
   background-color: #01a7c2;
   border: 1px solid #01a7c2;
   cursor: pointer;
+}
+
+.button-active {
+  background-color: #01a7c2;
+  border: 1px solid #01a7c2;
 }
 
 .outfit-option-container {
