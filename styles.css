@@ -50,6 +50,7 @@ button {
   color: white;
   /* box-shadow: 2px 0px 27px 1px rgba(114,114,114,0.64); */
   border: 1px solid #007090;
+  outline: none;
 }
 
 button:hover {
