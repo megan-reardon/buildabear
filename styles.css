@@ -58,6 +58,11 @@ button:hover {
   cursor: pointer;
 }
 
+.button-active {
+  background-color: #01a7c2;
+  border: 1px solid #01a7c2;
+}
+
 .outfit-option-container {
   grid-area: left;
   display: flex;
