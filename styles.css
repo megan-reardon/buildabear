@@ -71,10 +71,6 @@ button:hover {
   padding-left: 3%;
 }
 
-#top-hat {
-
-}
-
 .hats,
 .clothes,
 .accessories,
@@ -95,6 +91,7 @@ button:hover {
   display: flex;
   justify-content: center;
   position: relative;
+  padding-top: 6%;
 }
 
 .bear {
@@ -102,9 +99,12 @@ button:hover {
 }
 
 #top-hat {
-  height: 25%;
+  height: 21%;
   position: absolute;
   background: none;
+  top: 7%;
+  transform: rotate(25deg);
+  right: 37%;
 }
 
 form {
