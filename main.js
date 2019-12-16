@@ -3,11 +3,17 @@ var outfitName = document.querySelector('input');
 var saveButton = document.querySelector('#save-button');
 var outfits = [];
 var garmentOptions = document.querySelector('.garment-option-container');
-var hatSection = document.querySelector('.hats')
+var hatSection = document.querySelector('.hats');
+var clothesSection = document.querySelector('.clothes');
+var accessoriesSection = document.querySelector('.accessories');
+var backgroundsSection = document.querySelector('.backgrounds');
 
 saveButton.addEventListener('click', saveOutfit);
 garmentOptions.addEventListener('click', indicateActivateButton);
 hatSection.addEventListener('click', hatConditionals);
+clothesSection.addEventListener('click', clothesConditionals);
+accessoriesSection.addEventListener('click', accessoriesConditionals);
+backgroundsSection.addEventListener('click', backgroundsConditionals);
 
 function saveOutfit() {
   event.preventDefault();
@@ -30,8 +36,28 @@ function indicateActivateButton(event) {
 function hatConditionals() {
   addTopHat(event);
   addSunHat(event);
-  addBow(event);
+  addHairBow(event);
   addCrown(event);
+  addHelmet(event);
+}
+
+function clothesConditionals() {
+  addDress(event);
+  addVest(event);
+}
+
+function accessoriesConditionals() {
+  addNecklace(event);
+  addBowTie(event);
+  addWatch(event);
+  addSunnies(event);
+}
+
+function backgroundsConditionals() {
+  addPark(event);
+  addBeach(event);
+  addSpace(event);
+  addHearts(event);
 }
 
 function addTopHat(event) {
@@ -48,8 +74,8 @@ function addSunHat(event) {
   }
 }
 
-function addBow(event) {
-  var bow = document.querySelector('#bow');
+function addHairBow(event) {
+  var bow = document.querySelector('#hair-bow');
   if (event.target.innerText === 'Bow') {
     bow.classList.toggle('hidden');
   }
@@ -62,5 +88,81 @@ function addCrown(event) {
   }
 }
 
-//
+function addHelmet(event) {
+  var helmet = document.querySelector('#helmet');
+  if (event.target.innerText === 'Helmet') {
+    helmet.classList.toggle('hidden');
+  }
+}
 
+function addDress(event) {
+  var dress = document.querySelector('#dress');
+  if (event.target.innerText === 'Dress') {
+    dress.classList.toggle('hidden');
+  }
+}
+
+function addVest(event) {
+  var vest = document.querySelector('#vest');
+  if (event.target.innerText === 'Vest') {
+    vest.classList.toggle('hidden');
+  }
+}
+
+function addNecklace(event) {
+  var necklace = document.querySelector('#necklace');
+  if (event.target.innerText === 'Necklace') {
+    necklace.classList.toggle('hidden');
+  }
+}
+
+function addSunnies(event) {
+  var sunnies = document.querySelector('#sunnies');
+  if (event.target.innerText === 'Sunnies') {
+    sunnies.classList.toggle('hidden');
+  }
+}
+
+function addBowTie(event) {
+  var bowTie = document.querySelector('#bowtie');
+  if (event.target.innerText === 'Bowtie') {
+    bowTie.classList.toggle('hidden');
+  }
+}
+
+function addWatch(event) {
+  var watch = document.querySelector('#watch');
+  if (event.target.innerText === 'Watch') {
+    watch.classList.toggle('hidden');
+  }
+}
+
+function addPark(event) {
+  var park = document.querySelector('#park');
+  if (event.target.innerText === 'Park') {
+    park.classList.toggle('hidden');
+  }
+}
+
+function addBeach(event) {
+  var beach = document.querySelector('#beach');
+  if (event.target.innerText === 'Beach') {
+    beach.classList.toggle('hidden');
+  }
+}
+
+function addSpace(event) {
+  var space = document.querySelector('#space');
+  if (event.target.innerText === 'Space') {
+    space.classList.toggle('hidden');
+  }
+}
+
+function addHearts(event) {
+  var hearts = document.querySelector('#hearts');
+  if (event.target.innerText === 'Hearts') {
+    hearts.classList.toggle('hidden');
+  }
+}
+
+//
