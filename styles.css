@@ -95,16 +95,140 @@ button:hover {
 }
 
 .bear {
+  background: none;
   height: 90%;
+  z-index: 1;
 }
 
+/* GARMENT STYLING AND SIZING ON BEAR */
 #top-hat {
-  height: 94px;
+  height: 103px;
   position: absolute;
   background: none;
-  top: 7%;
-  transform: rotate(25deg);
-  right: 37%;
+  top: 5%;
+  transform: rotate(9deg);
+  right: 35%;
+  z-index: 2;
+}
+
+#sun-hat {
+  height: 252px;
+  position: absolute;
+  background: none;
+  top: -20px;
+  left: 254px;
+  transform: rotate(-6deg);
+  z-index: 3;
+}
+
+#hair-bow {
+  height: 76px;
+  position: absolute;
+  background: none;
+  top: 59px;
+  left: 293px;
+  transform: rotate(-20deg);
+  z-index: 2;
+}
+
+#crown {
+  height: 80px;
+  position: absolute;
+  background: none;
+  top: 34px;
+  left: 336px;
+  transform: rotate(18deg);
+  z-index: 2;
+}
+
+#helmet {
+  height: 200px;
+  position: absolute;
+  background: none;
+  top: 59px;
+  left: 274px;
+  transform: rotate(14deg);
+  z-index: 2;
+}
+
+#dress {
+  height: 312px;
+  position: absolute;
+  background: none;
+  top: 112px;
+  transform: rotate(9deg);
+  left: 188px;
+  z-index: 2;
+}
+
+#vest {
+  height: 406px;
+  position: absolute;
+  background: none;
+  top: 73px;
+  transform: rotate(2deg);
+  left: 146px;
+  z-index: 2;
+}
+
+#necklace {
+  height: 55px;
+  position: absolute;
+  background: none;
+  top: 234px;
+  transform: rotate(9deg);
+  left: 277px;
+  z-index: 2;
+}
+
+#sunnies {
+  height: 64px;
+  position: absolute;
+  background: none;
+  top: 133px;
+  left: 278px;
+  transform: rotate(18deg);
+  z-index: 2;
+}
+
+#bowtie {
+  height: 69px;
+  position: absolute;
+  background: none;
+  top: 234px;
+  transform: rotate(9deg);
+  left: 297px;
+  z-index: 2;
+}
+
+#watch {
+  height: 75px;
+  position: absolute;
+  background: none;
+  top: 200px;
+  transform: rotate(64deg);
+  left: 200px;
+  z-index: 2;
+}
+
+#park {
+  height: 500px;
+  position: absolute;
+}
+
+#beach {
+  height: 500px;
+  position: absolute;
+}
+
+#space {
+  height: 500px;
+  position: absolute;
+}
+
+#hearts {
+  height: 500px;
+  position: absolute;
 }
 
 form {
