@@ -64,7 +64,7 @@ button:hover {
   border: 1px solid #01a7c2;
 }
 
-.outfit-option-container {
+.garment-option-container {
   grid-area: left;
   display: flex;
   flex-direction: column;
@@ -95,6 +95,10 @@ button:hover {
 
 .bear {
   height: 90%;
+}
+
+#top-hat {
+  height: 94px;
 }
 
 form {
@@ -168,5 +172,8 @@ p {
   height: 1em;
 }
 
+.hidden {
+  display: none;
+}
 
 /*  */
