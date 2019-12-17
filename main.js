@@ -2,18 +2,22 @@ var closet = document.querySelector('.saved-outfit');
 var outfitName = document.querySelector('input');
 var saveButton = document.querySelector('#save-button');
 var outfits = [];
-var garmentOptions = document.querySelector('.garment-option-container');
+var garmentSection = document.querySelector('.garment-option-container');
 var hatSection = document.querySelector('.hats');
 var clothesSection = document.querySelector('.clothes');
 var accessoriesSection = document.querySelector('.accessories');
 var backgroundsSection = document.querySelector('.backgrounds');
+var id = Date.now(id);
+var outfit = new Outfit(id);
 
 saveButton.addEventListener('click', saveOutfit);
-garmentOptions.addEventListener('click', indicateActivateButton);
 hatSection.addEventListener('click', hatConditionals);
 clothesSection.addEventListener('click', clothesConditionals);
 accessoriesSection.addEventListener('click', accessoriesConditionals);
 backgroundsSection.addEventListener('click', backgroundsConditionals);
+garmentSection.addEventListener('click', indicateActivateButton);
+
+window.onload = console.log(outfit);
 
 function saveOutfit() {
   event.preventDefault();
@@ -26,7 +30,6 @@ function saveOutfit() {
 }
 
 // Function to highlight button when clicked
-
 function indicateActivateButton(event) {
   if(event.target.classList.contains('button')) {
     event.target.classList.toggle('button-active');
@@ -39,11 +42,13 @@ function hatConditionals() {
   addHairBow(event);
   addCrown(event);
   addHelmet(event);
+  console.log(outfit.garments);
 }
 
 function clothesConditionals() {
   addDress(event);
   addVest(event);
+  console.log(outfit.garments);
 }
 
 function accessoriesConditionals() {
@@ -51,6 +56,7 @@ function accessoriesConditionals() {
   addBowTie(event);
   addWatch(event);
   addSunnies(event);
+  console.log(outfit.garments);
 }
 
 function backgroundsConditionals() {
@@ -64,6 +70,7 @@ function addTopHat(event) {
   var topHat = document.querySelector('#top-hat');
   if (event.target.innerText === 'Top hat') {
     topHat.classList.toggle('hidden');
+    outfit.addGarment(topHat);
   }
 }
 
@@ -71,6 +78,7 @@ function addSunHat(event) {
   var sunHat = document.querySelector('#sun-hat');
   if (event.target.innerText === 'Sun hat') {
     sunHat.classList.toggle('hidden');
+    outfit.addGarment(sunHat);
   }
 }
 
@@ -78,6 +86,7 @@ function addHairBow(event) {
   var bow = document.querySelector('#hair-bow');
   if (event.target.innerText === 'Bow') {
     bow.classList.toggle('hidden');
+    outfit.addGarment(bow);
   }
 }
 
@@ -85,6 +94,7 @@ function addCrown(event) {
   var crown = document.querySelector('#crown');
   if (event.target.innerText === 'Crown') {
     crown.classList.toggle('hidden');
+    outfit.addGarment(crown);
   }
 }
 
@@ -92,6 +102,7 @@ function addHelmet(event) {
   var helmet = document.querySelector('#helmet');
   if (event.target.innerText === 'Helmet') {
     helmet.classList.toggle('hidden');
+    outfit.addGarment(helmet);
   }
 }
 
@@ -99,13 +110,16 @@ function addDress(event) {
   var dress = document.querySelector('#dress');
   if (event.target.innerText === 'Dress') {
     dress.classList.toggle('hidden');
+    outfit.addGarment(dress);
   }
-}
+ }
+
 
 function addVest(event) {
   var vest = document.querySelector('#vest');
   if (event.target.innerText === 'Vest') {
     vest.classList.toggle('hidden');
+    outfit.addGarment(vest);
   }
 }
 
@@ -113,6 +127,7 @@ function addNecklace(event) {
   var necklace = document.querySelector('#necklace');
   if (event.target.innerText === 'Necklace') {
     necklace.classList.toggle('hidden');
+    outfit.addGarment(necklace);
   }
 }
 
@@ -120,6 +135,7 @@ function addSunnies(event) {
   var sunnies = document.querySelector('#sunnies');
   if (event.target.innerText === 'Sunnies') {
     sunnies.classList.toggle('hidden');
+    outfit.addGarment(sunnies);
   }
 }
 
@@ -127,6 +143,7 @@ function addBowTie(event) {
   var bowTie = document.querySelector('#bowtie');
   if (event.target.innerText === 'Bowtie') {
     bowTie.classList.toggle('hidden');
+    outfit.addGarment(bowTie);
   }
 }
 
@@ -134,6 +151,7 @@ function addWatch(event) {
   var watch = document.querySelector('#watch');
   if (event.target.innerText === 'Watch') {
     watch.classList.toggle('hidden');
+    outfit.addGarment(watch);
   }
 }
 
