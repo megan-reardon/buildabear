@@ -32,9 +32,13 @@ function saveOutfit() {
 // Function to highlight button when clicked
 function indicateActivateButton(event) {
   if(event.target.classList.contains('button')) {
-    event.target.classList.toggle('button-active');
+    event.target.classList.toggle('selected-button');
   }
 }
+
+// Function to disable buttons that aren't clicked
+
+
 
 function hatConditionals() {
   addTopHat(event);
@@ -43,6 +47,7 @@ function hatConditionals() {
   addCrown(event);
   addHelmet(event);
   console.log(outfit.garments);
+  disableUnselectedButtons(event);
 }
 
 function clothesConditionals() {
@@ -64,6 +69,17 @@ function backgroundsConditionals() {
   addBeach(event);
   addSpace(event);
   addHearts(event);
+}
+
+var hats = document.querySelectorAll('.hats-btn');
+
+function disableUnselectedButtons() {
+  // debugger
+  for(var i = 0; i<hats.length; i++) {
+    hats[i].classList.remove('selected-button');
+  }
+  event.target.classList.replace('selected-button', 'unselected-button');
+  console.log('hi');
 }
 
 function addTopHat(event) {

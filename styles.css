@@ -37,6 +37,8 @@ h1 {
   font-size: 70px;
 }
 
+
+
 button {
   border-radius: 20px;
   padding: 1%;
@@ -58,10 +60,22 @@ button:hover {
   cursor: pointer;
 }
 
-.button-active {
+.selected-button {
   background-color: #01a7c2;
   border: 1px solid #01a7c2;
 }
+
+.unselected-button {
+  background: #007090;
+}
+
+/* :disabled {
+  background: grey;
+} */
+
+/* .red {
+  background: red;
+} */
 
 .garment-option-container {
   grid-area: left;
