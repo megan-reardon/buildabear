@@ -5,12 +5,10 @@ class Outfit {
     this.garments = [];
     this.background = background;
   }
-  addGarment() {
-
+  addGarment(garment) {
+    this.garments.push(garment);
   }
-  removeGarment() {
+  removeGarment(garment) {
 
   }
 }
-
-// module.exports = Outfit;
