@@ -54,7 +54,7 @@ button {
   outline: none;
 }
 
-button:hover {
+.button:hover {
   background-color: #01a7c2;
   border: 1px solid #01a7c2;
   cursor: pointer;
@@ -318,6 +318,11 @@ p {
 
 .hidden {
   display: none;
+}
+
+.save-btn-disabled {
+  background-color: grey;
+  border-color: grey;
 }
 
 /*  */
