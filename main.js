@@ -38,20 +38,25 @@ function indicateActivateButton(event) {
 }
 
 function hatConditionals() {
-  addHatGarment(event);
-  disableUnselectedButtonsHats(event);
-
+  if (event.target.classList.contains('hats-btn')) {
+    addHatGarment(event);
+    disableUnselectedButtonsHats(event);
+  }
 }
 
 function clothesConditionals() {
-  addClothesGarment(event);
-  disableUnselectedButtonsClothes(event);
+  if (event.target.classList.contains('clothes-btn')) {
+    addClothesGarment(event);
+    disableUnselectedButtonsClothes(event);
+  }
 }
 
 function accessoriesConditionals() {
-  addAccessoriesGarment(event);
-  disableUnselectedButtonsAccessories();
-  console.log(outfit.garments);
+  if (event.target.classList.contains('accessories-btn')) {
+    addAccessoriesGarment(event);
+    disableUnselectedButtonsAccessories();
+    console.log(outfit.garments);
+  }
 }
 
 function backgroundsConditionals() {
@@ -137,9 +142,9 @@ function removeBackgroundImage() {
 }
 
 function addClothesGarment(event) {
-  console.log(event);
   var clothesGarment = document.querySelector(`#${event.target.dataset.id}`);
   removeClothesGarment();
+  console.log('event when addClothesGArmet Runs', clothesGarment);
   if (event.target.innerText === `${event.target.innerText}`) {
     clothesGarment.classList.toggle('hidden');
     outfit.addGarment(`${event.target.dataset.id}`);
