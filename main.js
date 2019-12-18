@@ -32,41 +32,70 @@ function saveOutfit() {
 
 // Function to highlight button when clicked
 function indicateActivateButton(event) {
-  if(event.target.classList.contains('button')) {
+  if (event.target.classList.contains('button')) {
     event.target.classList.toggle('selected-button');
   }
 }
 
 function hatConditionals() {
-
   addHatGarment(event);
-  disableUnselectedButtons(event);
+  disableUnselectedButtonsHats(event);
 
 }
 
 function clothesConditionals() {
   addClothesGarment(event);
-
+  disableUnselectedButtonsClothes(event);
 }
 
 function accessoriesConditionals() {
   addAccessoriesGarment(event);
+  disableUnselectedButtonsAccessories();
   console.log(outfit.garments);
 }
 
 function backgroundsConditionals() {
   addBackgroundImage(event);
+  disableUnselectedButtonsBackgrounds();
 }
 
 // Function to change button color when garment is selected
-var hats = document.querySelectorAll('.hats-btn');
-function disableUnselectedButtons() {
-  for(var i = 0; i<hats.length; i++) {
+
+function disableUnselectedButtonsHats() {
+  var hats = document.querySelectorAll('.hats-btn');
+  for (var i = 0; i < hats.length; i++) {
     hats[i].classList.remove('selected-button');
   }
+
   event.target.classList.replace('selected-button', 'unselected-button');
 }
 
+function disableUnselectedButtonsClothes() {
+  var clothes = document.querySelectorAll('.clothes-btn');
+  for (var i = 0; i < clothes.length; i++) {
+    clothes[i].classList.remove('selected-button');
+  }
+
+  event.target.classList.replace('selected-button', 'unselected-button');
+}
+
+function disableUnselectedButtonsAccessories() {
+  var accessories = document.querySelectorAll('.accessories-btn');
+  for (var i = 0; i < accessories.length; i++) {
+    accessories[i].classList.remove('selected-button');
+  }
+
+  event.target.classList.replace('selected-button', 'unselected-button');
+}
+
+function disableUnselectedButtonsBackgrounds() {
+  var backgrounds = document.querySelectorAll('.backgrounds-btn');
+  for (var i = 0; i < backgrounds.length; i++) {
+    backgrounds[i].classList.remove('selected-button');
+  }
+
+  event.target.classList.replace('selected-button', 'unselected-button');
+}
 
 function addHatGarment(event) {
   hatGarment = document.querySelector(`#${event.target.dataset.id}`);
@@ -75,6 +104,7 @@ function addHatGarment(event) {
     hatGarment.classList.toggle('hidden');
     outfit.addGarment(`${event.target.dataset.id}`);
   }
+
   console.log(outfit);
 }
 
