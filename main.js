@@ -40,20 +40,27 @@ function indicateActivateButton(event) {
 }
 
 function hatConditionals() {
+  if (event.target.classList.contains('hats-btn')) {
+    addHatGarment(event);
+    disableUnselectedButtonsHats(event);
+  }
   addHatGarment(event);
   disableUnselectedButtonsHats(event);
-  // toggleHats();
 }
 
 function clothesConditionals() {
-  addClothesGarment(event);
-  disableUnselectedButtonsClothes(event);
+  if (event.target.classList.contains('clothes-btn')) {
+    addClothesGarment(event);
+    disableUnselectedButtonsClothes(event);
+  }
 }
 
 function accessoriesConditionals() {
-  addAccessoriesGarment(event);
-  disableUnselectedButtonsAccessories();
-  console.log(outfit.garments);
+  if (event.target.classList.contains('accessories-btn')) {
+    addAccessoriesGarment(event);
+    disableUnselectedButtonsAccessories();
+    console.log(outfit.garments);
+  }
 }
 
 function backgroundsConditionals() {
