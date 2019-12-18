@@ -21,6 +21,7 @@ garmentSection.addEventListener('click', indicateActivateButton);
 window.onload = console.log(outfit);
 
 function saveOutfit() {
+  var clearForm = document.querySelector("form");
   event.preventDefault();
   closet.insertAdjacentHTML('afterbegin', `
     <div class="saved-outfit-card">
@@ -28,6 +29,7 @@ function saveOutfit() {
       <img class="close" src="./assets/close.svg" alt="close-icon">
     </div>
   `);
+  clearForm.reset();
 }
 
 // Function to highlight button when clicked
