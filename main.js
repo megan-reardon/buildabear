@@ -17,8 +17,18 @@ clothesSection.addEventListener('click', clothesConditionals);
 accessoriesSection.addEventListener('click', accessoriesConditionals);
 backgroundsSection.addEventListener('click', backgroundsConditionals);
 garmentSection.addEventListener('click', indicateActivateButton);
+outfitName.addEventListener('keyup', validateInput); //Adds event listener to the input field
 
 window.onload = console.log(outfit);
+
+function validateInput() {
+  if (outfitName.value === '' || outfitName.value === 'Name this Outfit') {
+    saveButton.disabled = true;
+  } else { saveButton.disabled = false;
+
+  }
+
+}
 
 function saveOutfit() {
   var clearForm = document.querySelector('form');
@@ -45,8 +55,6 @@ function hatConditionals() {
     disableUnselectedButtonsHats(event);
   }
 
-  addHatGarment(event);
-  disableUnselectedButtonsHats(event);
 }
 
 function clothesConditionals() {
