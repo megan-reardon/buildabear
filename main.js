@@ -44,8 +44,6 @@ function hatConditionals() {
     addHatGarment(event);
     disableUnselectedButtonsHats(event);
   }
-  addHatGarment(event);
-  disableUnselectedButtonsHats(event);
 }
 
 function clothesConditionals() {
@@ -64,8 +62,10 @@ function accessoriesConditionals() {
 }
 
 function backgroundsConditionals() {
-  addBackgroundImage(event);
-  disableUnselectedButtonsBackgrounds();
+  if (event.target.classList.contains('backgrounds-btn')) {
+    addBackgroundImage(event);
+    disableUnselectedButtonsBackgrounds();
+  }
 }
 
 // Function to change button color when garment is selected
@@ -178,12 +178,5 @@ function addBackgroundImage(event) {
     } else if (event.target.innerText === `${event.target.innerText}`) {
     removeBackgroundImage();
     backgroundImage.classList.remove('hidden');
-    // outfit.addGarment(`${event.target.dataset.id}`);
   }
 }
-
-// Function to remove all garments
-
-
-
-//
