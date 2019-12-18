@@ -9,6 +9,7 @@ var accessoriesSection = document.querySelector('.accessories');
 var backgroundsSection = document.querySelector('.backgrounds');
 var id = Date.now(id);
 var outfit = new Outfit(id);
+var hatGarment;
 
 saveButton.addEventListener('click', saveOutfit);
 hatSection.addEventListener('click', hatConditionals);
@@ -37,8 +38,10 @@ function indicateActivateButton(event) {
 }
 
 function hatConditionals() {
+
   addHatGarment(event);
   disableUnselectedButtons(event);
+
 }
 
 function clothesConditionals() {
@@ -66,17 +69,47 @@ function disableUnselectedButtons() {
 
 
 function addHatGarment(event) {
-  console.log(event);
-  var hatGarment = document.querySelector(`#${event.target.dataset.id}`);
+  hatGarment = document.querySelector(`#${event.target.dataset.id}`);
+  removeHatGarment();
   if (event.target.innerText === `${event.target.innerText}`) {
     hatGarment.classList.toggle('hidden');
     outfit.addGarment(`${event.target.dataset.id}`);
+  }
+  console.log(outfit);
+}
+
+function removeHatGarment() {
+  var removeHats = document.querySelectorAll('.hat-image');
+  for (var i = 0; i < removeHats.length; i++) {
+    removeHats[i].classList.add('hidden');
+  }
+}
+
+function removeClothesGarment() {
+  var removeClothes = document.querySelectorAll('.clothes-image');
+  for (var i = 0; i < removeClothes.length; i++) {
+    removeClothes[i].classList.add('hidden');
+  }
+}
+
+function removeAccessoriesGarment() {
+  var removeAccessories = document.querySelectorAll('.accessories-image');
+  for (var i = 0; i < removeAccessories.length; i++) {
+    removeAccessories[i].classList.add('hidden');
+  }
+}
+
+function removeBackgroundImage() {
+  var removeBackground = document.querySelectorAll('.background-image');
+  for (var i = 0; i < removeBackground.length; i++) {
+    removeBackground[i].classList.add('hidden');
   }
 }
 
 function addClothesGarment(event) {
   console.log(event);
   var clothesGarment = document.querySelector(`#${event.target.dataset.id}`);
+  removeClothesGarment();
   if (event.target.innerText === `${event.target.innerText}`) {
     clothesGarment.classList.toggle('hidden');
     outfit.addGarment(`${event.target.dataset.id}`);
@@ -86,6 +119,7 @@ function addClothesGarment(event) {
 function addAccessoriesGarment(event) {
   console.log(event);
   var accessoriesGarment = document.querySelector(`#${event.target.dataset.id}`);
+  removeAccessoriesGarment();
   if (event.target.innerText === `${event.target.innerText}`) {
     accessoriesGarment.classList.toggle('hidden');
     outfit.addGarment(`${event.target.dataset.id}`);
@@ -95,9 +129,14 @@ function addAccessoriesGarment(event) {
 function addBackgroundImage(event) {
   console.log(event);
   var backgroundImage = document.querySelector(`#${event.target.dataset.id}`);
+  removeBackgroundImage();
   if (event.target.innerText === `${event.target.innerText}`) {
     backgroundImage.classList.toggle('hidden');
   }
 }
+
+// Function to remove all garments
+
+
 
 //
