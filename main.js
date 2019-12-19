@@ -9,7 +9,40 @@ var accessoriesSection = document.querySelector('.accessories');
 var backgroundsSection = document.querySelector('.backgrounds');
 var id = Date.now(id);
 var outfit = new Outfit(id);
-var hatGarment;
+// var hatGarment;
+// var garmentIndexNumber;
+
+// variables for removing element from array
+function updateArray(event) {
+  garmentIndexNumber = outfit.garments.indexOf(`${event.target.dataset.id}`);
+  var previousGarment = outfit.garments.includes('sun-hat');
+  console.log(previousGarment);
+  // console.log(garmentIndexNumber);
+  if(event.target.classList.contains('hat')) {
+}
+};
+
+
+// function updateArray() {
+// var hatId = 'sun-hat';
+//
+// for(var i=0; i<outfit.garments.length; i++) {
+//   if(outfit.garments.length[i].id == hatId) {
+//     data.splice(i, 1);
+//     break;
+//   }
+// }
+// }
+
+
+// function retrieveHatArray() {
+//   outfit.garments.includes('top-hat');
+// }
+//
+// function previousHat() {
+//   outfit.garments.findIndex(retrieveHatArray);
+// };
+
 
 saveButton.addEventListener('click', saveOutfit);
 hatSection.addEventListener('click', hatConditionals);
@@ -39,29 +72,32 @@ function indicateActivateButton(event) {
   }
 }
 
-function hatConditionals() {
+function hatConditionals(event) {
   if (event.target.classList.contains('hats-btn')) {
     addHatGarment(event);
-    disableUnselectedButtonsHats(event);
+    // disableUnselectedButtonsHats(event);
+    // updateArray(event);
   }
 }
 
-function clothesConditionals() {
+function clothesConditionals(event) {
   if (event.target.classList.contains('clothes-btn')) {
     addClothesGarment(event);
     disableUnselectedButtonsClothes(event);
+    // updateArray(event);
   }
 }
 
-function accessoriesConditionals() {
+function accessoriesConditionals(event) {
   if (event.target.classList.contains('accessories-btn')) {
     addAccessoriesGarment(event);
     disableUnselectedButtonsAccessories();
     console.log(outfit.garments);
+    // updateArray(event);
   }
 }
 
-function backgroundsConditionals() {
+function backgroundsConditionals(event) {
   if (event.target.classList.contains('backgrounds-btn')) {
     addBackgroundImage(event);
     disableUnselectedButtonsBackgrounds();
@@ -70,11 +106,11 @@ function backgroundsConditionals() {
 
 // Function to change button color when garment is selected
 
-function disableUnselectedButtonsHats() {
+function disableUnselectedButtonsHats(event) {
   var hats = document.querySelectorAll('.hats-btn');
   for (var i = 0; i < hats.length; i++) {
     hats[i].classList.remove('selected-button');
-  }
+  };
 
   event.target.classList.replace('selected-button', 'unselected-button');
 }
@@ -83,7 +119,7 @@ function disableUnselectedButtonsClothes() {
   var clothes = document.querySelectorAll('.clothes-btn');
   for (var i = 0; i < clothes.length; i++) {
     clothes[i].classList.remove('selected-button');
-  }
+  };
 
   event.target.classList.replace('selected-button', 'unselected-button');
 }
@@ -110,6 +146,7 @@ function removeHatGarment() {
   var removeHats = document.querySelectorAll('.hat-image');
   for (var i = 0; i < removeHats.length; i++) {
     removeHats[i].classList.add('hidden');
+    outfit.removeGarment(`${event.target.dataset.id}`);
   }
 }
 
@@ -136,14 +173,20 @@ function removeBackgroundImage() {
 
 function addHatGarment(event) {
   hatGarment = document.querySelector(`#${event.target.dataset.id}`);
-    if(event.target.classList.contains('selected-button')) {
+  if(event.target.classList.contains('selected-button')) {
       hatGarment.classList.add('hidden');
-      event.target.classList.replace('selected-button', 'unselected-button');
+      event.target.classList.add('unselected-button');
+      event.target.classList.remove('selected-button');
+      // outfit.removeGarment(`${event.target.dataset.id}`);
     } else if (event.target.innerText === `${event.target.innerText}`) {
     removeHatGarment();
     hatGarment.classList.remove('hidden');
+    event.target.classList.replace('unselected-button', 'selected-button');
+    disableUnselectedButtonsHats(event);
     outfit.addGarment(`${event.target.dataset.id}`);
+    // addHat(event);
   }
+  console.log(outfit);
 }
 
 function addClothesGarment(event) {
@@ -156,6 +199,7 @@ function addClothesGarment(event) {
     clothesGarment.classList.remove('hidden');
     outfit.addGarment(`${event.target.dataset.id}`);
   }
+  console.log(outfit);
 }
 
 function addAccessoriesGarment(event) {

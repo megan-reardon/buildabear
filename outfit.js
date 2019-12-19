@@ -9,6 +9,6 @@ class Outfit {
     this.garments.push(garment);
   }
   removeGarment(garment) {
-
+    this.garments.splice(garment);
   }
 }
