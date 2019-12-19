@@ -143,18 +143,22 @@ function disableUnselectedButtonsBackgrounds() {
 }
 
 function removeHatGarment() {
-  var removeHats = document.querySelectorAll('.hat-image');
-  for (var i = 0; i < removeHats.length; i++) {
-    removeHats[i].classList.add('hidden');
-    outfit.removeGarment(`${event.target.dataset.id}`);
+  var hats = ['top-hat', 'sun-hat', 'hair-bow', 'crown', 'helmet']
+  removeOutfitVisuals('.hat-image')
+  outfit.removeGarment(hats)
+}
+
+function removeOutfitVisuals(garmentClass) {
+  var itemsToRemove = document.querySelectorAll(garmentClass)
+  for (var i = 0; i < itemsToRemove.length; i++){
+    itemsToRemove[i].classList.add('hidden');
   }
 }
 
 function removeClothesGarment() {
-  var removeClothes = document.querySelectorAll('.clothes-image');
-  for (var i = 0; i < removeClothes.length; i++) {
-    removeClothes[i].classList.add('hidden');
-  }
+  var clothes = ['dress', 'vest']
+  removeOutfitVisuals('.clothes-image')
+  outfit.removeGarment(clothes)
 }
 
 function removeAccessoriesGarment() {
