@@ -320,4 +320,21 @@ p {
   display: none;
 }
 
+:disabled {
+  background-color: grey;
+  border-color: grey;
+}
+
+button:hover:disabled{
+  background-color: grey;
+  border: 1px solid grey;
+}
+
+/* .save-btn-hover:hover {
+  background-color: #01a7c2;
+  border: 1px solid #01a7c2;
+  cursor: pointer;
+} */
+
+
 /*  */
