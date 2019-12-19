@@ -41,7 +41,19 @@ function saveOutfit() {
     </div>
   `);
   saveButton.disabled = true;
+  removeAllGarments();
   clearForm.reset();
+}
+
+function removeAllGarments() {
+  removeHatGarment();
+  removeClothesGarment();
+  removeAccessoriesGarment();
+  removeBackgroundImage();
+  disableUnselectedButtonsHats();
+  disableUnselectedButtonsClothes();
+  disableUnselectedButtonsAccessories();
+  disableUnselectedButtonsBackgrounds();
 }
 
 // Function to highlight button when clicked
