@@ -76,6 +76,7 @@ function accessoriesConditionals() {
 
 function backgroundsConditionals() {
   addBackgroundImage(event);
+  outfit.background = event.target.dataset.id;
   disableUnselectedButtonsBackgrounds();
 }
 
