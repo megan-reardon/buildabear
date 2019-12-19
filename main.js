@@ -50,6 +50,10 @@ function removeAllGarments() {
   removeClothesGarment();
   removeAccessoriesGarment();
   removeBackgroundImage();
+  disableUnselectedButtonsHats();
+  disableUnselectedButtonsClothes();
+  disableUnselectedButtonsAccessories();
+  disableUnselectedButtonsBackgrounds();
 }
 
 // Function to highlight button when clicked
