@@ -21,6 +21,7 @@ outfitName.addEventListener('keyup', validateInput); //Adds event listener to th
 
 window.onload = console.log(outfit);
 
+//This function tests to see if there is anything in the input field
 function validateInput() {
   if (outfitName.value === '' || outfitName.value === 'Name this Outfit') {
     saveButton.disabled = true;
@@ -39,6 +40,7 @@ function saveOutfit() {
       <img class="close" src="./assets/close.svg" alt="close-icon">
     </div>
   `);
+  saveButton.disabled = true;
   clearForm.reset();
 }
 
