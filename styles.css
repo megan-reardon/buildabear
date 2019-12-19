@@ -112,7 +112,7 @@ button:hover {
 .bear {
   background: none;
   height: 90%;
-  z-index: 0;
+  z-index: 1;
 }
 
 /* GARMENT STYLING AND SIZING ON BEAR */
@@ -172,7 +172,7 @@ button:hover {
   background: none;
   top: 112px;
   transform: rotate(9deg);
-  left: 188px;
+  left: 158px;
   z-index: 2;
 }
 
@@ -182,7 +182,7 @@ button:hover {
   background: none;
   top: 73px;
   transform: rotate(2deg);
-  left: 146px;
+  left: 111px;
   z-index: 2;
 }
 
@@ -192,7 +192,7 @@ button:hover {
   background: none;
   top: 234px;
   transform: rotate(9deg);
-  left: 277px;
+  left: 247px;
   z-index: 2;
 }
 
@@ -201,7 +201,7 @@ button:hover {
   position: absolute;
   background: none;
   top: 133px;
-  left: 278px;
+  left: 248px;
   transform: rotate(18deg);
   z-index: 2;
 }
@@ -212,7 +212,7 @@ button:hover {
   background: none;
   top: 234px;
   transform: rotate(9deg);
-  left: 297px;
+  left: 268px;
   z-index: 2;
 }
 
@@ -222,28 +222,36 @@ button:hover {
   background: none;
   top: 200px;
   transform: rotate(64deg);
-  left: 200px;
+  left: 167px;
   z-index: 2;
 }
 
 #park {
   height: 500px;
   position: absolute;
+  left: 4em;
+  width: 95%;
 }
 
 #beach {
   height: 500px;
   position: absolute;
+  left: 4em;
+  width: 95%;
 }
 
 #space {
   height: 500px;
   position: absolute;
+  left: 4em;
+  width: 95%;
 }
 
 #hearts {
   height: 500px;
   position: absolute;
+  left: 4em;
+  width: 95%;
 }
 
 form {
