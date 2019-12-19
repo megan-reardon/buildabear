@@ -122,7 +122,7 @@ button:hover {
   background: none;
   top: 5%;
   transform: rotate(9deg);
-  right: 35%;
+  right: 32%;
   z-index: 1;
 }
 
@@ -131,7 +131,7 @@ button:hover {
   position: absolute;
   background: none;
   top: -20px;
-  left: 254px;
+  left: 235px;
   transform: rotate(-6deg);
   z-index: 2;
 }
@@ -141,7 +141,7 @@ button:hover {
   position: absolute;
   background: none;
   top: 59px;
-  left: 293px;
+  left: 254px;
   transform: rotate(-20deg);
   z-index: 3;
 }
@@ -151,7 +151,7 @@ button:hover {
   position: absolute;
   background: none;
   top: 34px;
-  left: 336px;
+  left: 300px;
   transform: rotate(18deg);
   z-index: 4;
 }
@@ -161,7 +161,7 @@ button:hover {
   position: absolute;
   background: none;
   top: 59px;
-  left: 274px;
+  left: 238px;
   transform: rotate(14deg);
   z-index: 5;
 }
