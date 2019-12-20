@@ -10,6 +10,7 @@ var backgroundsSection = document.querySelector('.backgrounds');
 var id = Date.now(id);
 var outfit = new Outfit(id);
 var hatGarment;
+var allGarments = [];
 
 saveButton.addEventListener('click', saveOutfit);
 hatSection.addEventListener('click', hatConditionals);
@@ -18,8 +19,11 @@ accessoriesSection.addEventListener('click', accessoriesConditionals);
 backgroundsSection.addEventListener('click', backgroundsConditionals);
 garmentSection.addEventListener('click', indicateActivateButton);
 outfitName.addEventListener('keyup', validateInput); //Adds event listener to the input field
+closet.addEventListener('click', removeSavedOutfitCard);
 
 window.onload = console.log(outfit);
+
+
 
 //This function tests to see if there is anything in the input field
 function validateInput() {
@@ -29,6 +33,18 @@ function validateInput() {
 
   }
 
+}
+
+function selectGarments(event) {
+  var hatButtons = document.querySelectorAll('.hats-btn');
+  var clothesButtons = document.querySelectorAll('.clothes-btn');
+  var accesoriesButtons = document.querySelectorAll('.accessories-btn');
+
+  for (var i = 0; i < hatButtons.length; i++) {
+    if (event.target.parentElement.className === 'hats-btn')
+    allGarments[0] = event.target.id;
+    console.log(allGarments);
+  }
 }
 
 function saveOutfit() {
@@ -65,6 +81,7 @@ function indicateActivateButton(event) {
 
 function hatConditionals() {
   if (event.target.classList.contains('hats-btn')) {
+    selectGarments(event);
     addHatGarment(event);
     disableUnselectedButtonsHats(event);
   }
@@ -160,13 +177,14 @@ function removeBackgroundImage() {
 
 function addHatGarment(event) {
   hatGarment = document.querySelector(`#${event.target.dataset.id}`);
+  console.log('this is the button id', event.target);
   if (event.target.classList.contains('selected-button')) {
     hatGarment.classList.add('hidden');
     event.target.classList.replace('selected-button', 'unselected-button');
   } else if (event.target.innerText === `${event.target.innerText}`) {
     removeHatGarment();
     hatGarment.classList.remove('hidden');
-    outfit.addGarment(`${event.target.dataset.id}`);
+    // outfit.addGarment(`${event.target.dataset.id}`);
   }
 }
 
@@ -203,6 +221,14 @@ function addBackgroundImage(event) {
     removeBackgroundImage();
     backgroundImage.classList.remove('hidden');
     // outfit.addGarment(`${event.target.dataset.id}`);
+  }
+}
+//This function removed a saved outfit card
+function removeSavedOutfitCard(event) {
+  console.log(event.target.classList.contains('close'));
+  if (event.target.classList.contains('close')) {
+    console.log(event.target);
+    event.target.closest('.saved-outfit-card').remove();
   }
 }
 
