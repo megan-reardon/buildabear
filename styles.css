@@ -97,6 +97,7 @@ button:hover {
 .dressing-room {
   grid-area: middle;
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 
