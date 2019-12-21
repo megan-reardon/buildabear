@@ -87,6 +87,7 @@ button:hover {
 .dressing-room {
   grid-area: middle;
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -96,6 +97,7 @@ button:hover {
   justify-content: center;
   position: relative;
   padding-top: 6%;
+  width: 40em;
 }
 
 .bear {
@@ -111,8 +113,8 @@ button:hover {
   background: none;
   top: 5%;
   transform: rotate(9deg);
-  right: 35%;
-  z-index: 2;
+  right: 32%;
+  z-index: 1;
 }
 
 #sun-hat {
@@ -120,9 +122,9 @@ button:hover {
   position: absolute;
   background: none;
   top: -20px;
-  left: 254px;
+  left: 235px;
   transform: rotate(-6deg);
-  z-index: 3;
+  z-index: 2;
 }
 
 #hair-bow {
@@ -130,9 +132,9 @@ button:hover {
   position: absolute;
   background: none;
   top: 59px;
-  left: 293px;
+  left: 254px;
   transform: rotate(-20deg);
-  z-index: 2;
+  z-index: 3;
 }
 
 #crown {
@@ -140,9 +142,9 @@ button:hover {
   position: absolute;
   background: none;
   top: 34px;
-  left: 336px;
+  left: 300px;
   transform: rotate(18deg);
-  z-index: 2;
+  z-index: 4;
 }
 
 #helmet {
@@ -150,9 +152,9 @@ button:hover {
   position: absolute;
   background: none;
   top: 59px;
-  left: 274px;
+  left: 238px;
   transform: rotate(14deg);
-  z-index: 2;
+  z-index: 5;
 }
 
 #dress {
@@ -161,7 +163,7 @@ button:hover {
   background: none;
   top: 112px;
   transform: rotate(9deg);
-  left: 188px;
+  left: 158px;
   z-index: 2;
 }
 
@@ -171,7 +173,7 @@ button:hover {
   background: none;
   top: 73px;
   transform: rotate(2deg);
-  left: 146px;
+  left: 111px;
   z-index: 2;
 }
 
@@ -181,7 +183,7 @@ button:hover {
   background: none;
   top: 234px;
   transform: rotate(9deg);
-  left: 277px;
+  left: 247px;
   z-index: 2;
 }
 
@@ -190,7 +192,7 @@ button:hover {
   position: absolute;
   background: none;
   top: 133px;
-  left: 278px;
+  left: 248px;
   transform: rotate(18deg);
   z-index: 2;
 }
@@ -201,7 +203,7 @@ button:hover {
   background: none;
   top: 234px;
   transform: rotate(9deg);
-  left: 297px;
+  left: 268px;
   z-index: 2;
 }
 
@@ -211,28 +213,36 @@ button:hover {
   background: none;
   top: 200px;
   transform: rotate(64deg);
-  left: 200px;
+  left: 167px;
   z-index: 2;
 }
 
 #park {
   height: 500px;
   position: absolute;
+  left: 4em;
+  width: 95%;
 }
 
 #beach {
   height: 500px;
   position: absolute;
+  left: 4em;
+  width: 95%;
 }
 
 #space {
   height: 500px;
   position: absolute;
+  left: 4em;
+  width: 95%;
 }
 
 #hearts {
   height: 500px;
   position: absolute;
+  left: 4em;
+  width: 95%;
 }
 
 form {
@@ -309,5 +319,22 @@ p {
 .hidden {
   display: none;
 }
+
+:disabled {
+  background-color: grey;
+  border-color: grey;
+}
+
+button:hover:disabled{
+  background-color: grey;
+  border: 1px solid grey;
+}
+
+/* .save-btn-hover:hover {
+  background-color: #01a7c2;
+  border: 1px solid #01a7c2;
+  cursor: pointer;
+} */
+
 
 /*  */
