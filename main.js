@@ -156,17 +156,16 @@ function removeOutfitVisuals(garmentClass) {
 }
 
 function removeClothesGarment() {
-  var clothes = ['dress', 'vest']
-  removeOutfitVisuals('.clothes-image')
-  outfit.removeGarment(clothes)
+  var clothes = ['dress', 'vest'];
+  removeOutfitVisuals('.clothes-image');
+  outfit.removeGarment(clothes);
 }
 
 function removeAccessoriesGarment() {
-  var removeAccessories = document.querySelectorAll('.accessories-image');
-  for (var i = 0; i < removeAccessories.length; i++) {
-    removeAccessories[i].classList.add('hidden');
+  var accessories = ['necklace', 'bowtie', 'watch', 'sunnies'];
+  removeOutfitVisuals('.accessories-image');
+  outfit.removeGarment(accessories);
   }
-}
 
 function removeBackgroundImage() {
   var removeBackground = document.querySelectorAll('.background-image');
@@ -178,17 +177,15 @@ function removeBackgroundImage() {
 function addHatGarment(event) {
   hatGarment = document.querySelector(`#${event.target.dataset.id}`);
   if(event.target.classList.contains('selected-button')) {
-      hatGarment.classList.add('hidden');
-      event.target.classList.add('unselected-button');
-      event.target.classList.remove('selected-button');
-      // outfit.removeGarment(`${event.target.dataset.id}`);
+    hatGarment.classList.add('hidden');
+    event.target.classList.add('unselected-button');
+    event.target.classList.remove('selected-button');
     } else if (event.target.innerText === `${event.target.innerText}`) {
     removeHatGarment();
     hatGarment.classList.remove('hidden');
     event.target.classList.replace('unselected-button', 'selected-button');
     disableUnselectedButtonsHats(event);
     outfit.addGarment(`${event.target.dataset.id}`);
-    // addHat(event);
   }
   console.log(outfit);
 }
