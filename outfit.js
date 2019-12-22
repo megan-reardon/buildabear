@@ -8,7 +8,13 @@ class Outfit {
   addGarment(garment) {
     this.garments.push(garment);
   }
-  removeGarment(garment) {
-
+  removeGarment(garmentsToRemove) {
+    for(var i = 0; i < garmentsToRemove.length; i++) {
+      var garmentToRemove = garmentsToRemove[i];
+      var indexToRemove = this.garments.indexOf(garmentToRemove);
+      if(indexToRemove !== -1) {
+        this.garments.splice(indexToRemove,1);
+      }
+    }
   }
 }
