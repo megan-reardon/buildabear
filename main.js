@@ -201,6 +201,7 @@ function removeGarments(hats, clothes) {
   if (event.target.classList.contains('hats-btn')) {
     for (var i = 0; i < hats.length; i++) {
       hats[i].classList.add('hidden');
+      console.log('sanitiy check 3, hide the hats');
     }
   } else if (event.target.classList.contains('clothes-btn')) {
     for (var i = 0; i < clothes.length; i++) {
@@ -219,13 +220,13 @@ function removeGarments(hats, clothes) {
 
 function addGarments(event) {
   var garment = document.querySelector(`#${event.target.dataset.id}`);
-  // console.log('this is the button id', event.target);
+  console.log('sanity check 1');
   if (event.target.classList.contains('selected-button')) {
     garment.classList.add('hidden');
     event.target.classList.replace('selected-button', 'unselected-button');
   } else if (event.target.innerText === event.target.innerText) {
-    // console.log(event.target.innerText);
-    removeGarments('.hat-image', 'clothes-image');
+    console.log('sanity check 2');
+    removeGarments('.hat-image', '.clothes-image');
     garment.classList.remove('hidden');
     outfit.addGarment(`${event.target.dataset.id}`);
 
