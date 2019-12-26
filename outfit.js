@@ -5,9 +5,11 @@ class Outfit {
     this.garments = [];
     this.background = background;
   }
+
   addGarment(garment) {
     this.garments.push(garment);
   }
+
   removeGarment(garment) {
 
   }
