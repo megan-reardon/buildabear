@@ -11,6 +11,6 @@ class Outfit {
   }
 
   removeGarment(garment) {
-
+    this.garments.pop(garment);
   }
 }
