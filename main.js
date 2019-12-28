@@ -98,9 +98,18 @@ function runOutfitConditional() {
     // console.log('hit that background btn', event.target.classList);
     addGarments(event);
     disableUnselectedButtons('.backgrounds-btn');
-    outfit.background = event.target.dataset.id;
+    outfit.background = event.target.dataset.id
   }
 }
+
+// function removeGarments(garmentImageClass) {
+//   var garmentToRemove = document.querySelectorAll(garmentImageClass);
+//   console.log(garmentToRemove);
+//   // for (var i = 0; i < garmentImageClass.length; i++) {
+//     // garmentImageClass[i].addClass('hidden');
+//     // console.log(garmentToRemove[i]);
+//   // }
+// }
 
 function removeGarments(hats, clothes, accessories, background) {
   var hats = document.querySelectorAll(hats);
