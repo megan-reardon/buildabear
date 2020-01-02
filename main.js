@@ -32,15 +32,20 @@ function runOutfitConditionalTest(classOfButton) {
     disableUnselectedButtons(`.${classOfButton}`);
     // console.log(classOfButton);
     outfit.addGarment(`${event.target.dataset.id}`);
+    // console.log(`${event.target.dataset.id}`)
   }
 }
 
 function removeGarmentFromBear(garmentItem) {
-  // debugger
+  var garmentToRemoveFromObject = event.target.dataset.id;
   let garment = document.querySelectorAll(garmentItem);
   for (var i = 0; i < garment.length; i++) {
     garment[i].classList.add('hidden');
   }
+
+  // console.log('garment removed');
+  outfit.removeGarment(garmentToRemoveFromObject);
+  console.log(garmentToRemoveFromObject);
 }
 
 function addGarments(event) {
