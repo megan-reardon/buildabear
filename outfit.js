@@ -18,6 +18,7 @@ class Outfit {
   }
 
   removeGarment(garmentsToRemove) {
+    // console.log(garmentsToRemove);
     for (var i = 0; i < garmentsToRemove.length; i++) {
       var garmentToRemove = garmentsToRemove[i];
       var indexToRemove = this.garments.indexOf(garmentToRemove);
