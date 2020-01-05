@@ -5,18 +5,27 @@ var garmentSection = document.querySelector('.garment-option-container');
 var backgroundsSection = document.querySelector('.backgrounds');
 var id = Date.now(id);
 var outfit = new Outfit(id);
-var allGarments = [];
+// var allGarments = [];
 var hats = ['top-hat', 'sun-hat', 'hair-bow', 'crown', 'helmet'];
 var clothes = ['dress', 'vest'];
 var accessories = ['necklace', 'bowtie', 'watch', 'sunnies'];
-
+var allGarments = [];
 saveButton.addEventListener('click', saveOutfit);
 garmentSection.addEventListener('click', indicateButtonsAndDress);
 outfitName.addEventListener('keyup', validateInput);
 closet.addEventListener('click', removeSavedOutfitCard);
+// window.addEventListener('load', pageLoadHandler);
 
-window.onload = console.log(outfit);
+window.onload = function pageLoadHandler() {
+  allGarments = JSON.parse(window.localStorage.getItem('savedOutfits'));
+  window.onload = console.log(outfit);
+}
 
+// function pageLoadHandler() {
+
+//
+//   console.log(allGarments);
+// }
 
 function indicateButtonsAndDress() {
   runOutfitConditional(event.target.classList[1]);
@@ -25,7 +34,7 @@ function indicateButtonsAndDress() {
 
 function runOutfitConditional(classOfButton) {
   if (event.target.classList.contains(classOfButton)) {
-    selectGarments(event);
+    // selectGarments(event);
     addGarments(event);
     disableUnselectedButtons(`.${classOfButton}`);
     updateObjectGarments(classOfButton);
@@ -73,13 +82,13 @@ function validateInput() {
   }
 }
 
-function selectGarments(event) {
-  var hatButtons = document.querySelectorAll('.hats-btn');
-  for (var i = 0; i < hatButtons.length; i++) {
-    if (event.target.parentElement.className === 'hats-btn')
-    allGarments[0] = event.target.id;
-  }
-}
+// function selectGarments(event) {
+//   var hatButtons = document.querySelectorAll('.hats-btn');
+//   for (var i = 0; i < hatButtons.length; i++) {
+//     if (event.target.parentElement.className === 'hats-btn')
+//     allGarments[0] = event.target.id;
+//   }
+// }
 
 function saveOutfit() {
   var form = document.querySelector('form');
