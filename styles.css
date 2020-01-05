@@ -328,6 +328,7 @@ p {
 button:hover:disabled{
   background-color: grey;
   border: 1px solid grey;
+  cursor: not-allowed;
 }
 
 /* .save-btn-hover:hover {
