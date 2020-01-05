@@ -97,6 +97,7 @@ function saveOutfit() {
   disableUnselectedButtons('.button');
   form.reset();
   outfit = new Outfit(Date.now());
+  window.localStorage.setItem('savedOutfits', JSON.stringify(allGarments));
 
   console.log(outfit);
 }
