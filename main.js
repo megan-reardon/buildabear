@@ -1,7 +1,6 @@
 var closet = document.querySelector('.saved-outfit');
 var outfitName = document.querySelector('input');
 var saveButton = document.querySelector('#save-button');
-var outfits = [];
 var garmentSection = document.querySelector('.garment-option-container');
 var backgroundsSection = document.querySelector('.backgrounds');
 var id = Date.now(id);
@@ -93,11 +92,11 @@ function saveOutfit() {
   `);
   saveButton.disabled = true;
   outfit.title = outfitName.value;
+  allGarments.push(outfit);
   clearOutfits();
   disableUnselectedButtons('.button');
   form.reset();
-  outfit.garments.splice(0, 3);
-  outfit.background = undefined;
+  outfit = new Outfit(Date.now());
 
   console.log(outfit);
 }
