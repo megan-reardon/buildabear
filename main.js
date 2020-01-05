@@ -17,15 +17,23 @@ closet.addEventListener('click', removeSavedOutfitCard);
 // window.addEventListener('load', pageLoadHandler);
 
 window.onload = function pageLoadHandler() {
+  console.log(allGarments);
+  if (allGarments.length > 0){
   allGarments = JSON.parse(window.localStorage.getItem('savedOutfits'));
   window.onload = console.log(outfit);
+  console.log(allGarments);
+}
+  // refreshSavedCards(allGarments[0].title);
 }
 
-// function pageLoadHandler() {
-
-//
-//   console.log(allGarments);
-// }
+function refreshSavedCards(title) {
+  closet.insertAdjacentHTML('afterbegin', `
+    <div class="saved-outfit-card">
+      <p>${title}</p>
+      <img class="close" src="./assets/close.svg" alt="close-icon">
+    </div>
+  `);
+}
 
 function indicateButtonsAndDress() {
   runOutfitConditional(event.target.classList[1]);
@@ -34,7 +42,6 @@ function indicateButtonsAndDress() {
 
 function runOutfitConditional(classOfButton) {
   if (event.target.classList.contains(classOfButton)) {
-    // selectGarments(event);
     addGarments(event);
     disableUnselectedButtons(`.${classOfButton}`);
     updateObjectGarments(classOfButton);
@@ -81,14 +88,6 @@ function validateInput() {
   } else { saveButton.disabled = false;
   }
 }
-
-// function selectGarments(event) {
-//   var hatButtons = document.querySelectorAll('.hats-btn');
-//   for (var i = 0; i < hatButtons.length; i++) {
-//     if (event.target.parentElement.className === 'hats-btn')
-//     allGarments[0] = event.target.id;
-//   }
-// }
 
 function saveOutfit() {
   var form = document.querySelector('form');
