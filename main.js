@@ -92,11 +92,13 @@ function saveOutfit() {
     </div>
   `);
   saveButton.disabled = true;
+  outfit.title = outfitName.value;
   clearOutfits();
   disableUnselectedButtons('.button');
   form.reset();
   outfit.garments.splice(0, 3);
   outfit.background = undefined;
+
   console.log(outfit);
 }
 
