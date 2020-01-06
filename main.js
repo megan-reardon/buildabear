@@ -22,15 +22,8 @@ window.onload = function() {
 } else {
   allGarments = [];
 }
+refreshSavedCards(allGarments[0].title);
 }
-
-// function uploadGarments() {
-//   var savedGarments = window.localStorage.getItem("savedOutfits");
-//   allGarments = allGarments.concat(JSON.parse(savedGarments));
-// }
-
-
-  // refreshSavedCards(allGarments[0].title);
 
 
 function refreshSavedCards(title) {
@@ -41,6 +34,8 @@ function refreshSavedCards(title) {
     </div>
   `);
 }
+
+// refreshSavedCards(allGarments[0].title);
 
 function indicateButtonsAndDress() {
   runOutfitConditional(event.target.classList[1]);
