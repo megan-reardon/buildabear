@@ -2,29 +2,36 @@ var closet = document.querySelector('.saved-outfit');
 var outfitName = document.querySelector('input');
 var saveButton = document.querySelector('#save-button');
 var garmentSection = document.querySelector('.garment-option-container');
+var allGarments = [];
 var backgroundsSection = document.querySelector('.backgrounds');
 var id = Date.now(id);
 var outfit = new Outfit(id);
-// var allGarments = [];
 var hats = ['top-hat', 'sun-hat', 'hair-bow', 'crown', 'helmet'];
 var clothes = ['dress', 'vest'];
 var accessories = ['necklace', 'bowtie', 'watch', 'sunnies'];
-var allGarments = [];
 saveButton.addEventListener('click', saveOutfit);
 garmentSection.addEventListener('click', indicateButtonsAndDress);
 outfitName.addEventListener('keyup', validateInput);
 closet.addEventListener('click', removeSavedOutfitCard);
 // window.addEventListener('load', pageLoadHandler);
 
-window.onload = function pageLoadHandler() {
-  console.log(allGarments);
-  if (allGarments.length > 0){
-  allGarments = JSON.parse(window.localStorage.getItem('savedOutfits'));
-  window.onload = console.log(outfit);
-  console.log(allGarments);
+window.onload = function() {
+  var savedGarments = window.localStorage.getItem("savedOutfits");
+  if(localStorage.length > 0) {
+  allGarments = allGarments.concat(JSON.parse(savedGarments));
+} else {
+  allGarments = [];
 }
+}
+
+// function uploadGarments() {
+//   var savedGarments = window.localStorage.getItem("savedOutfits");
+//   allGarments = allGarments.concat(JSON.parse(savedGarments));
+// }
+
+
   // refreshSavedCards(allGarments[0].title);
-}
+
 
 function refreshSavedCards(title) {
   closet.insertAdjacentHTML('afterbegin', `
@@ -71,10 +78,16 @@ function updateObjectGarments() {
 }
 
 function addGarments(event) {
+  // debugger
   let garment = document.querySelector(`#${event.target.dataset.id}`);
   var garmentsToDelete = `.${garment.classList[0]}`;
-  if (event.target.classList.contains('selected-button')) {
-    event.target.classList.replace('selected-button', 'unselected-button');
+  if (event.target.classList.contains('selected-button') && event.target.classList.contains('unselected-button')) {
+    garment.classList.remove('hidden');
+  } else if (event.target.classList.contains('selected-button')) {
+    garment.classList.add('hidden');
+    // disableUnselectedButtons();
+    event.target.classList.replace('selected-button','unselected-button');
+    event.target.classList.remove('selected-button');
   } else if (event.target.innerText === event.target.innerText) {
     removeGarmentFromBear(garmentsToDelete);
     garment.classList.remove('hidden');
@@ -90,6 +103,7 @@ function validateInput() {
 }
 
 function saveOutfit() {
+
   var form = document.querySelector('form');
   event.preventDefault();
   closet.insertAdjacentHTML('afterbegin', `
@@ -104,11 +118,11 @@ function saveOutfit() {
   clearOutfits();
   disableUnselectedButtons('.button');
   form.reset();
+  window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
   outfit = new Outfit(Date.now());
-  window.localStorage.setItem('savedOutfits', JSON.stringify(allGarments));
-
-  console.log(outfit);
 }
+
+// uploadGarments();
 
 function clearOutfits() {
   let garments = document.querySelectorAll('.garment-image');
@@ -125,10 +139,13 @@ function disableUnselectedButtons(button) {
 }
 
 function indicateActivateButton(event) {
-  if (event.target.classList.contains('button')) {
+  if (event.target.classList.contains('selected-button')) {
+    event.target.classList.remove('selected-button')
+  } else if (event.target.classList.contains('button')) {
     event.target.classList.toggle('selected-button');
   }
 }
+
 
 function removeSavedOutfitCard(event) {
   if (event.target.classList.contains('close')) {
