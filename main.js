@@ -1,23 +1,42 @@
 var closet = document.querySelector('.saved-outfit');
 var outfitName = document.querySelector('input');
 var saveButton = document.querySelector('#save-button');
-var outfits = [];
 var garmentSection = document.querySelector('.garment-option-container');
+var allGarments = [];
 var backgroundsSection = document.querySelector('.backgrounds');
 var id = Date.now(id);
 var outfit = new Outfit(id);
-var allGarments = [];
 var hats = ['top-hat', 'sun-hat', 'hair-bow', 'crown', 'helmet'];
 var clothes = ['dress', 'vest'];
 var accessories = ['necklace', 'bowtie', 'watch', 'sunnies'];
-
 saveButton.addEventListener('click', saveOutfit);
 garmentSection.addEventListener('click', indicateButtonsAndDress);
 outfitName.addEventListener('keyup', validateInput);
 closet.addEventListener('click', removeSavedOutfitCard);
+// window.addEventListener('load', pageLoadHandler);
 
-window.onload = console.log(outfit);
+window.onload = function() {
+  var savedGarments = window.localStorage.getItem("savedOutfits");
+  if(localStorage.length > 0) {
+  allGarments = allGarments.concat(JSON.parse(savedGarments));
+} else {
+  allGarments = [];
+}
+refreshSavedCards();
+}
 
+function refreshSavedCards() {
+  for(var i = 0; i < allGarments.length; i++) {
+  closet.insertAdjacentHTML('afterbegin', `
+    <div class="saved-outfit-card">
+      <p>${allGarments[i].title}</p>
+      <img class="close" src="./assets/close.svg" alt="close-icon">
+    </div>
+  `);
+  }
+}
+
+// refreshSavedCards(allGarments[0].title);
 
 function indicateButtonsAndDress() {
   runOutfitConditional(event.target.classList[1]);
@@ -26,7 +45,6 @@ function indicateButtonsAndDress() {
 
 function runOutfitConditional(classOfButton) {
   if (event.target.classList.contains(classOfButton)) {
-    selectGarments(event);
     addGarments(event);
     disableUnselectedButtons(`.${classOfButton}`);
     updateObjectGarments(classOfButton);
@@ -56,10 +74,16 @@ function updateObjectGarments() {
 }
 
 function addGarments(event) {
+  // debugger
   let garment = document.querySelector(`#${event.target.dataset.id}`);
   var garmentsToDelete = `.${garment.classList[0]}`;
-  if (event.target.classList.contains('selected-button')) {
-    event.target.classList.replace('selected-button', 'unselected-button');
+  if (event.target.classList.contains('selected-button') && event.target.classList.contains('unselected-button')) {
+    garment.classList.remove('hidden');
+  } else if (event.target.classList.contains('selected-button')) {
+    garment.classList.add('hidden');
+    // disableUnselectedButtons();
+    event.target.classList.replace('selected-button','unselected-button');
+    event.target.classList.remove('selected-button');
   } else if (event.target.innerText === event.target.innerText) {
     removeGarmentFromBear(garmentsToDelete);
     garment.classList.remove('hidden');
@@ -74,15 +98,8 @@ function validateInput() {
   }
 }
 
-function selectGarments(event) {
-  var hatButtons = document.querySelectorAll('.hats-btn');
-  for (var i = 0; i < hatButtons.length; i++) {
-    if (event.target.parentElement.className === 'hats-btn')
-    allGarments[0] = event.target.id;
-  }
-}
-
 function saveOutfit() {
+
   var form = document.querySelector('form');
   event.preventDefault();
   closet.insertAdjacentHTML('afterbegin', `
@@ -92,13 +109,16 @@ function saveOutfit() {
     </div>
   `);
   saveButton.disabled = true;
+  outfit.title = outfitName.value;
+  allGarments.push(outfit);
   clearOutfits();
   disableUnselectedButtons('.button');
   form.reset();
-  outfit.garments.splice(0, 3);
-  outfit.background = undefined;
-  console.log(outfit);
+  window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
+  outfit = new Outfit(Date.now());
 }
+
+// uploadGarments();
 
 function clearOutfits() {
   let garments = document.querySelectorAll('.garment-image');
@@ -115,12 +135,23 @@ function disableUnselectedButtons(button) {
 }
 
 function indicateActivateButton(event) {
-  if (event.target.classList.contains('button')) {
+  if (event.target.classList.contains('selected-button')) {
+    event.target.classList.remove('selected-button')
+  } else if (event.target.classList.contains('button')) {
     event.target.classList.toggle('selected-button');
   }
 }
 
+
 function removeSavedOutfitCard(event) {
+  console.log(event.target.closest('.saved-outfit-card').innerText);
+  for(var i = 0; i < allGarments.length; i++) {
+    console.log(allGarments[i].title)
+    if(event.target.closest('.saved-outfit-card').innerText === allGarments[i].title) {
+      allGarments.splice(i, 1);
+      window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
+    }
+  }
   if (event.target.classList.contains('close')) {
     event.target.closest('.saved-outfit-card').remove();
   }
