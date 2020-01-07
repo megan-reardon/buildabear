@@ -22,17 +22,18 @@ window.onload = function() {
 } else {
   allGarments = [];
 }
-refreshSavedCards(allGarments[0].title);
+refreshSavedCards();
 }
 
-
-function refreshSavedCards(title) {
+function refreshSavedCards() {
+  for(var i = 0; i < allGarments.length; i++) {
   closet.insertAdjacentHTML('afterbegin', `
     <div class="saved-outfit-card">
-      <p>${title}</p>
+      <p>${allGarments[i].title}</p>
       <img class="close" src="./assets/close.svg" alt="close-icon">
     </div>
   `);
+  }
 }
 
 // refreshSavedCards(allGarments[0].title);
