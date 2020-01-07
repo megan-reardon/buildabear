@@ -12,8 +12,8 @@ var accessories = ['necklace', 'bowtie', 'watch', 'sunnies'];
 saveButton.addEventListener('click', saveOutfit);
 garmentSection.addEventListener('click', indicateButtonsAndDress);
 outfitName.addEventListener('keyup', validateInput);
-closet.addEventListener('click', removeSavedOutfitCard);
-// window.addEventListener('load', pageLoadHandler);
+closet.addEventListener('click', savedOutfitHandler);
+
 
 window.onload = function() {
   var savedGarments = window.localStorage.getItem("savedOutfits");
@@ -25,13 +25,21 @@ window.onload = function() {
 refreshSavedCards();
 }
 
+function savedOutfitHandler(event) {
+  removeSavedOutfitCard(event);
+  // reDressBear(event);
+}
+
+
 function refreshSavedCards() {
   for(var i = 0; i < allGarments.length; i++) {
   closet.insertAdjacentHTML('afterbegin', `
+  <div class="saved-card-wrapper">
     <div class="saved-outfit-card">
       <p>${allGarments[i].title}</p>
-      <img class="close" src="./assets/close.svg" alt="close-icon">
+      <img class="close ${allGarments[i].title}" src="./assets/close.svg" alt="close-icon">
     </div>
+  </div>
   `);
   }
 }
@@ -103,10 +111,12 @@ function saveOutfit() {
   var form = document.querySelector('form');
   event.preventDefault();
   closet.insertAdjacentHTML('afterbegin', `
+   <div class="saved-card-wrapper">
     <div class="saved-outfit-card">
       <p>${outfitName.value}</p>
       <img class="close" src="./assets/close.svg" alt="close-icon">
     </div>
+  </div>
   `);
   saveButton.disabled = true;
   outfit.title = outfitName.value;
@@ -144,15 +154,21 @@ function indicateActivateButton(event) {
 
 
 function removeSavedOutfitCard(event) {
-  console.log(event.target.closest('.saved-outfit-card').innerText);
   for(var i = 0; i < allGarments.length; i++) {
     console.log(allGarments[i].title)
-    if(event.target.closest('.saved-outfit-card').innerText === allGarments[i].title) {
+    if(event.target.classList.contains(`${allGarments[i].title}`)) {
       allGarments.splice(i, 1);
       window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
     }
+    console.log('hi');
   }
   if (event.target.classList.contains('close')) {
     event.target.closest('.saved-outfit-card').remove();
   }
 }
+
+// function reDressBear(event) {
+//   if(event.target.classList === 'saved-card-wrapper') {
+//     console.log(event.target);
+//   }
+// }
