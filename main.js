@@ -144,6 +144,14 @@ function indicateActivateButton(event) {
 
 
 function removeSavedOutfitCard(event) {
+  console.log(event.target.closest('.saved-outfit-card').innerText);
+  for(var i = 0; i < allGarments.length; i++) {
+    console.log(allGarments[i].title)
+    if(event.target.closest('.saved-outfit-card').innerText === allGarments[i].title) {
+      allGarments.splice(i, 1);
+      window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
+    }
+  }
   if (event.target.classList.contains('close')) {
     event.target.closest('.saved-outfit-card').remove();
   }
