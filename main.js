@@ -27,19 +27,17 @@ refreshSavedCards();
 
 function savedOutfitHandler(event) {
   removeSavedOutfitCard(event);
-  // reDressBear(event);
+  reDressBear(event);
 }
 
 
 function refreshSavedCards() {
   for(var i = 0; i < allGarments.length; i++) {
   closet.insertAdjacentHTML('afterbegin', `
-  <div class="saved-card-wrapper">
     <div class="saved-outfit-card">
       <p>${allGarments[i].title}</p>
       <img class="close ${allGarments[i].title}" src="./assets/close.svg" alt="close-icon">
     </div>
-  </div>
   `);
   }
 }
@@ -111,12 +109,10 @@ function saveOutfit() {
   var form = document.querySelector('form');
   event.preventDefault();
   closet.insertAdjacentHTML('afterbegin', `
-   <div class="saved-card-wrapper">
     <div class="saved-outfit-card">
       <p>${outfitName.value}</p>
       <img class="close" src="./assets/close.svg" alt="close-icon">
     </div>
-  </div>
   `);
   saveButton.disabled = true;
   outfit.title = outfitName.value;
@@ -155,20 +151,41 @@ function indicateActivateButton(event) {
 
 function removeSavedOutfitCard(event) {
   for(var i = 0; i < allGarments.length; i++) {
-    console.log(allGarments[i].title)
+    // console.log(allGarments[i].title)
     if(event.target.classList.contains(`${allGarments[i].title}`)) {
       allGarments.splice(i, 1);
       window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
     }
-    console.log('hi');
   }
   if (event.target.classList.contains('close')) {
     event.target.closest('.saved-outfit-card').remove();
   }
 }
 
+function reDressBear(event) {
+  console.log(outfit);
+  for(var i = 0; i < allGarments.length; i++) {
+    if(event.target.innerText === `${allGarments[i].title}`) {
+      var indexOfGarment = allGarments.indexOf(allGarments[i]);
+      var savedBearOutfit = window.localStorage.getItem("savedOutfits");
+      var parsedBearOutfit = JSON.parse(savedBearOutfit);
+      var outfitTitle = parsedBearOutfit[indexOfGarment].title;
+    }
+    if(outfitTitle === `${allGarments[i].title}`) {
+      outfit = new Outfit({id: parsedBearOutfit[indexOfGarment].id, title: parsedBearOutfit[indexOfGarment].title, garment: parsedBearOutfit[indexOfGarment].garments, background: parsedBearOutfit[indexOfGarment].background})
+      console.log(outfit);
+    }
+}
+}
+
+
 // function reDressBear(event) {
-//   if(event.target.classList === 'saved-card-wrapper') {
-//     console.log(event.target);
+//   for(var i = 0; i < allGarments.length; i++) {
+//     if(event.target.innerText === `${allGarments[i].title}`) {
+//       for(var j = 0; j < allGarments[i].garments.length; j++) {
+//         console.log(allGarments[i].garments[0]);
+//       }
+//
 //   }
+// }
 // }
