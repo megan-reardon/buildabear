@@ -7,7 +7,7 @@ var allGarments = [];
 var id = Date.now(id);
 var outfit = new Outfit(id);
 
-saveButton.addEventListener('click', saveOutfit);
+saveButton.addEventListener('click', createOutfitCard);
 garmentSection.addEventListener('click', indicateButtonsAndDress);
 outfitName.addEventListener('keyup', validateInput);
 closet.addEventListener('click', savedOutfitHandler);
@@ -106,7 +106,7 @@ function validateInput() {
   }
 }
 
-function saveOutfit() {
+function createOutfitCard() {
   var innerText = outfitName.value.replace(/\s/g, "").toUpperCase();
   var form = document.querySelector('form');
   event.preventDefault();
@@ -116,17 +116,20 @@ function saveOutfit() {
       <img class="close" src="./assets/close.svg" alt="close-icon">
     </div>
   `);
+  saveOutfit(form, innerText);
+  window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
+  outfit = new Outfit(Date.now());
+  location.reload();
+}
+
+function saveOutfit(form, innerText) {
   saveButton.disabled = true;
   outfit.title = innerText;
   allGarments.push(outfit);
   clearOutfits();
   disableUnselectedButtons('.button');
   form.reset();
-  window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
-  outfit = new Outfit(Date.now());
 }
-
-// uploadGarments();
 
 function clearOutfits() {
   let garments = document.querySelectorAll('.garment-image');
@@ -160,6 +163,7 @@ function removeSavedOutfitCard(event) {
 
   if (event.target.classList.contains('close')) {
     event.target.closest('.saved-outfit-card').remove();
+    disableUnselectedButtons('.button');
   }
 }
 
