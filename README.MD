@@ -1,6 +1,6 @@
 # Build A Bear
 
-Build A Bear is the first group project for Front End Module 1 at the Turing School of Software & Design. The goal was to build an application where users can create and save outfits for a digital teddy bear. Users can enter a title for each outfit they want to save. This project focuses on creating a design that meets the general wireframe provided. It is intended for practice writigin well structured, semantic HTML with clean, percises CSS, as well as adding user interaction with JavaScript between a Data Model and the DOM.
+Build A Bear is the first group project for Front End Module 1 at the Turing School of Software & Design. The goal was to build an application where users can create and save outfits for a digital teddy bear. Users can enter a title for each outfit they want to save. This project focuses on creating a design that meets the general wireframe provided and is intended for practice writing well structured, semantic HTML with clean, percises CSS, as well as adding user interaction with JavaScript between a Data Model and the DOM.
 
 ## Team Members
 * [Madison Randle](https://github.com/madisonrandle)
