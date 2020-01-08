@@ -10,10 +10,8 @@ class Outfit {
     if (garmentPlaceHolder === 'park' || garmentPlaceHolder === 'beach' ||
       garmentPlaceHolder === 'space' || garmentPlaceHolder === 'hearts') {
       this.background = garmentPlaceHolder;
-      // console.log('background', outfit);
     } else {
       this.garments.push(garmentPlaceHolder);
-      // console.log('garment', outfit);
     }
   }
 

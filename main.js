@@ -28,6 +28,7 @@ function savedOutfitHandler(event) {
   removeSavedOutfitCard(event);
   reDressBear(event);
   reDisplaySelectedButtons(event);
+  rePopulateInput(event);
 }
 
 function refreshSavedCards() {
@@ -144,7 +145,6 @@ function indicateActivateButton(event) {
 }
 
 function removeSavedOutfitCard(event) {
-  // debugger
   console.log(allGarments);
   for(var i = 0; i < allGarments.length; i++) {
     if(event.target.classList.contains(`${allGarments[i].title}`)) {
@@ -174,6 +174,7 @@ function reDressBear(event) {
   }
 
   function reDisplaySelectedButtons(event) {
+    disableUnselectedButtons('.button');
     var garmentButtons = document.querySelectorAll('.button');
     var foundButton = allGarments.find(garment => garment.title === event.target.innerText)
     for ( var i = 0; i < foundButton.garments.length; i++) {
@@ -186,4 +187,8 @@ function reDressBear(event) {
       }
     }
   }
+}
+
+function rePopulateInput() {
+
 }
