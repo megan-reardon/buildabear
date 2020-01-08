@@ -27,6 +27,7 @@ refreshSavedCards();
 function savedOutfitHandler(event) {
   removeSavedOutfitCard(event);
   reDressBear(event);
+  reDisplaySelectedButtons(event);
 }
 
 function refreshSavedCards() {
@@ -147,9 +148,7 @@ function removeSavedOutfitCard(event) {
   console.log(allGarments);
   for(var i = 0; i < allGarments.length; i++) {
     if(event.target.classList.contains(`${allGarments[i].title}`)) {
-      console.log('hi');
       allGarments.splice(i, 1);
-      console.log('test')
       window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
     }
   }
@@ -173,3 +172,18 @@ function reDressBear(event) {
       }
     }
   }
+
+  function reDisplaySelectedButtons(event) {
+    var garmentButtons = document.querySelectorAll('.button');
+    var foundButton = allGarments.find(garment => garment.title === event.target.innerText)
+    for ( var i = 0; i < foundButton.garments.length; i++) {
+      for(var j = 0; j < garmentButtons.length; j++) {
+        if (foundButton.garments[i] === garmentButtons[j].dataset.id) {
+          garmentButtons[j].classList.add('selected-button');
+        }
+        if (foundButton.background === garmentButtons[j].dataset.id) {
+          garmentButtons[j].classList.add('selected-button')
+      }
+    }
+  }
+}
