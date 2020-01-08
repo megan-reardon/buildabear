@@ -12,8 +12,7 @@ var accessories = ['necklace', 'bowtie', 'watch', 'sunnies'];
 saveButton.addEventListener('click', saveOutfit);
 garmentSection.addEventListener('click', indicateButtonsAndDress);
 outfitName.addEventListener('keyup', validateInput);
-closet.addEventListener('click', removeSavedOutfitCard);
-// window.addEventListener('load', pageLoadHandler);
+closet.addEventListener('click', savedOutfitHandler);
 
 window.onload = function() {
   var savedGarments = window.localStorage.getItem("savedOutfits");
@@ -25,18 +24,22 @@ window.onload = function() {
 refreshSavedCards();
 }
 
+function savedOutfitHandler(event) {
+  removeSavedOutfitCard(event);
+  reDressBear(event);
+  reDisplaySelectedButtons(event);
+}
+
 function refreshSavedCards() {
   for(var i = 0; i < allGarments.length; i++) {
   closet.insertAdjacentHTML('afterbegin', `
     <div class="saved-outfit-card">
       <p>${allGarments[i].title}</p>
-      <img class="close" src="./assets/close.svg" alt="close-icon">
+      <img class="close ${allGarments[i].title}" src="./assets/close.svg" alt="close-icon">
     </div>
   `);
   }
 }
-
-// refreshSavedCards(allGarments[0].title);
 
 function indicateButtonsAndDress() {
   runOutfitConditional(event.target.classList[1]);
@@ -74,14 +77,12 @@ function updateObjectGarments() {
 }
 
 function addGarments(event) {
-  // debugger
   let garment = document.querySelector(`#${event.target.dataset.id}`);
   var garmentsToDelete = `.${garment.classList[0]}`;
   if (event.target.classList.contains('selected-button') && event.target.classList.contains('unselected-button')) {
     garment.classList.remove('hidden');
   } else if (event.target.classList.contains('selected-button')) {
     garment.classList.add('hidden');
-    // disableUnselectedButtons();
     event.target.classList.replace('selected-button','unselected-button');
     event.target.classList.remove('selected-button');
   } else if (event.target.innerText === event.target.innerText) {
@@ -99,17 +100,17 @@ function validateInput() {
 }
 
 function saveOutfit() {
-
+  var innerText = outfitName.value.replace(/\s/g, "")
   var form = document.querySelector('form');
   event.preventDefault();
   closet.insertAdjacentHTML('afterbegin', `
     <div class="saved-outfit-card">
-      <p>${outfitName.value}</p>
+      <p>${innerText}</p>
       <img class="close" src="./assets/close.svg" alt="close-icon">
     </div>
   `);
   saveButton.disabled = true;
-  outfit.title = outfitName.value;
+  outfit.title = innerText;
   allGarments.push(outfit);
   clearOutfits();
   disableUnselectedButtons('.button');
@@ -142,17 +143,47 @@ function indicateActivateButton(event) {
   }
 }
 
-
 function removeSavedOutfitCard(event) {
-  console.log(event.target.closest('.saved-outfit-card').innerText);
+  // debugger
+  console.log(allGarments);
   for(var i = 0; i < allGarments.length; i++) {
-    console.log(allGarments[i].title)
-    if(event.target.closest('.saved-outfit-card').innerText === allGarments[i].title) {
+    if(event.target.classList.contains(`${allGarments[i].title}`)) {
       allGarments.splice(i, 1);
       window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
     }
   }
   if (event.target.classList.contains('close')) {
     event.target.closest('.saved-outfit-card').remove();
+  }
+}
+
+function reDressBear(event) {
+  clearOutfits();
+  var garmentImages = document.querySelectorAll('.garment-image');
+  var foundGarment = allGarments.find(garment => garment.title === event.target.innerText)
+    for ( var i = 0; i < foundGarment.garments.length; i++) {
+      for(var j = 0; j < garmentImages.length; j++) {
+        if (foundGarment.garments[i] === garmentImages[j].id) {
+          garmentImages[j].classList.remove('hidden');
+        }
+        if (foundGarment.background === garmentImages[j].id) {
+          garmentImages[j].classList.remove('hidden')
+        }
+      }
+    }
+  }
+
+  function reDisplaySelectedButtons(event) {
+    var garmentButtons = document.querySelectorAll('.button');
+    var foundButton = allGarments.find(garment => garment.title === event.target.innerText)
+    for ( var i = 0; i < foundButton.garments.length; i++) {
+      for(var j = 0; j < garmentButtons.length; j++) {
+        if (foundButton.garments[i] === garmentButtons[j].dataset.id) {
+          garmentButtons[j].classList.add('selected-button');
+        }
+        if (foundButton.background === garmentButtons[j].dataset.id) {
+          garmentButtons[j].classList.add('selected-button')
+      }
+    }
   }
 }

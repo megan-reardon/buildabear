@@ -1,8 +1,8 @@
 class Outfit {
-  constructor(id, title, background) {
+  constructor(id, title='', garments=[], background='') {
     this.id = id;
     this.title = title;
-    this.garments = [];
+    this.garments = garments;
     this.background = background;
   }
 
