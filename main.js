@@ -14,7 +14,6 @@ garmentSection.addEventListener('click', indicateButtonsAndDress);
 outfitName.addEventListener('keyup', validateInput);
 closet.addEventListener('click', savedOutfitHandler);
 
-
 window.onload = function() {
   var savedGarments = window.localStorage.getItem("savedOutfits");
   if(localStorage.length > 0) {
@@ -30,7 +29,6 @@ function savedOutfitHandler(event) {
   reDressBear(event);
 }
 
-
 function refreshSavedCards() {
   for(var i = 0; i < allGarments.length; i++) {
   closet.insertAdjacentHTML('afterbegin', `
@@ -41,8 +39,6 @@ function refreshSavedCards() {
   `);
   }
 }
-
-// refreshSavedCards(allGarments[0].title);
 
 function indicateButtonsAndDress() {
   runOutfitConditional(event.target.classList[1]);
@@ -80,14 +76,12 @@ function updateObjectGarments() {
 }
 
 function addGarments(event) {
-  // debugger
   let garment = document.querySelector(`#${event.target.dataset.id}`);
   var garmentsToDelete = `.${garment.classList[0]}`;
   if (event.target.classList.contains('selected-button') && event.target.classList.contains('unselected-button')) {
     garment.classList.remove('hidden');
   } else if (event.target.classList.contains('selected-button')) {
     garment.classList.add('hidden');
-    // disableUnselectedButtons();
     event.target.classList.replace('selected-button','unselected-button');
     event.target.classList.remove('selected-button');
   } else if (event.target.innerText === event.target.innerText) {
@@ -105,17 +99,17 @@ function validateInput() {
 }
 
 function saveOutfit() {
-
+  var innerText = outfitName.value.replace(/\s/g, "")
   var form = document.querySelector('form');
   event.preventDefault();
   closet.insertAdjacentHTML('afterbegin', `
     <div class="saved-outfit-card">
-      <p>${outfitName.value}</p>
+      <p>${innerText}</p>
       <img class="close" src="./assets/close.svg" alt="close-icon">
     </div>
   `);
   saveButton.disabled = true;
-  outfit.title = outfitName.value;
+  outfit.title = innerText;
   allGarments.push(outfit);
   clearOutfits();
   disableUnselectedButtons('.button');
@@ -148,12 +142,14 @@ function indicateActivateButton(event) {
   }
 }
 
-
 function removeSavedOutfitCard(event) {
+  // debugger
+  console.log(allGarments);
   for(var i = 0; i < allGarments.length; i++) {
-    // console.log(allGarments[i].title)
     if(event.target.classList.contains(`${allGarments[i].title}`)) {
+      console.log('hi');
       allGarments.splice(i, 1);
+      console.log('test')
       window.localStorage.setItem("savedOutfits", JSON.stringify(allGarments));
     }
   }
@@ -167,89 +163,13 @@ function reDressBear(event) {
   var garmentImages = document.querySelectorAll('.garment-image');
   var foundGarment = allGarments.find(garment => garment.title === event.target.innerText)
     for ( var i = 0; i < foundGarment.garments.length; i++) {
-      // console.log(foundGarment.garments[i]);
-      // console.log(`#${foundGarment.garments[i]}`);
       for(var j = 0; j < garmentImages.length; j++) {
         if (foundGarment.garments[i] === garmentImages[j].id) {
           garmentImages[j].classList.remove('hidden');
-          console.log('sanity check');
         }
-        if (foundGarment.background === garmentImages[j].id){
+        if (foundGarment.background === garmentImages[j].id) {
           garmentImages[j].classList.remove('hidden')
-          console.log('background removed');
         }
       }
-
     }
-  // if(foundGarment )
-  console.log(foundGarment.garments);
-  // console.log(foundGarment.background);
-  // document.getElementById(foundGarment.background).click()
-  // for (var i = 0; i < allGarments.length; i++) {
-  //   console.log(allGarments[i]);
   }
-
-// function reDressBear(event) {
-//   for(var i = 0; i < allGarments.length; i++) {
-//   if(event.target.innerText === `${allGarments[i].title}`) {
-//     document.getElementById(allGarments[i].title).click();
-//     console.log(allGarments[i].title);
-//   }
-//     // for(var j = 0; j < allGarments.length; j++) {
-//     //
-//     //
-//     // console.log((allGarments[i].title));
-//   }
-// }
-
-
-// function reDressBear(event) {
-//   console.log(outfit);
-//   for(var i = 0; i < allGarments.length; i++) {
-//     if(event.target.innerText === `${allGarments[i].title}`) {
-//       var indexOfGarment = allGarments.indexOf(allGarments[i]);
-//       var savedBearOutfit = window.localStorage.getItem("savedOutfits");
-//       var parsedBearOutfit = JSON.parse(savedBearOutfit);
-//       var outfitTitle = parsedBearOutfit[indexOfGarment].title;
-//       var outfitGarments = parsedBearOutfit[indexOfGarment];
-//       }
-//     if(outfitTitle === `${allGarments[i].title}`) {
-//     var outfit = new Outfit(outfitGarments.id, outfitGarments.title, outfitGarments.garments, outfitGarments.background);
-//       console.log(outfit);
-//     }
-//   }
-//   var backgroundImages = document.getElementById(`${outfit.title}`)
-//   var garmentImages = document.querySelectorAll(`${outfit.garments}`);
-//
-//     console.log(garmentImages);
-//
-//   var garmentImages = document.querySelectorAll('.garment-image');
-//     for(var k = 0; k < garmentImages.length; k++) {
-//       console.log(garmentImages[k]);
-//       if(garmentImages[k].contains(`#${outfit.title}`)) {
-//         garment.classList.remove('hidden');
-//       } console.log(`#${outfit.title}`);
-//     for(var j = 0; j < outfit.garments.length; j++) {
-//
-//       if(outfit.garments[j] === 'helmet') {
-//         garment.classList.remove('hidden');
-//       }
-//     }
-// }
-// }
-
-
-
-// outfit = new Outfit({id: outfitGarments.id, title: outfitGarments.title, garment: outfitGarments.garments, background: outfitGarments.background})
-
-
-// function reDressBear(event) {
-//   for(var i = 0; i < allGarments.length; i++) {
-//     if(event.target.innerText === `${allGarments[i].title}`) {
-//       for(var j = 0; j < allGarments[i].garments.length; j++) {
-//         console.log(allGarments[i].garments[0]);
-//       }
-//
-//   }
-// }
-// }
