@@ -47,7 +47,7 @@ button {
   font-weight: bold;
   background-color: #007090;
   color: white;
-  /* box-shadow: 2px 0px 27px 1px rgba(114,114,114,0.64); */
+  box-shadow: 2px 5px 16px 0px #0B325E;
   border: 1px solid #007090;
   outline: none;
 }
@@ -55,7 +55,9 @@ button {
 button:hover {
   background-color: #01a7c2;
   border: 1px solid #01a7c2;
+  box-shadow: 0px 10px 13px -7px #000000;
   cursor: pointer;
+  transition: 0.15s ease-in-out;
 }
 
 .selected-button {
@@ -218,6 +220,7 @@ button:hover {
 }
 
 #park {
+  border-radius: 5%;
   height: 500px;
   position: absolute;
   left: 4em;
@@ -225,6 +228,7 @@ button:hover {
 }
 
 #beach {
+  border-radius: 5%;
   height: 500px;
   position: absolute;
   left: 4em;
@@ -232,6 +236,7 @@ button:hover {
 }
 
 #space {
+  border-radius: 5%;
   height: 500px;
   position: absolute;
   left: 4em;
@@ -239,6 +244,7 @@ button:hover {
 }
 
 #hearts {
+  border-radius: 5%;
   height: 500px;
   position: absolute;
   left: 4em;
