@@ -174,6 +174,10 @@ function reDressBear(event) {
           garmentImages[j].classList.remove('hidden');
           console.log('sanity check');
         }
+        if (foundGarment.background === garmentImages[j].id){
+          garmentImages[j].classList.remove('hidden')
+          console.log('background removed');
+        }
       }
 
     }
