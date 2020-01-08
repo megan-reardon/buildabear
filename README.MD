@@ -26,12 +26,18 @@ Build A Bear is the first group project for Front End Module 1 at the Turing Sch
 4. Save your favorite outfits and dress the bear with these again at a later time
 
 ## Challenges
-
-This is where we will put our challenges
+* Pressure to focus and manage our time on both the project and personal learning
+* Having a two week break over the holidays and going back to a coding mindset
+* Incorporating new concepts like, local storage and connecting a Data Model to the DOM
+* Navigating different skill levels 
 
 ## Wins
-
-This is where we will put our wins
+* Having a two week break over the holidays to deepen our understanding of concepts we were struggling with individually
+  * Objects and classes
+  * Local storage
+  * Refactoring
+* Front loading
+* Using grid
 
 ## Composition
 
