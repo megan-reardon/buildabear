@@ -189,6 +189,6 @@ function reDressBear(event) {
   }
 }
 
-function rePopulateInput() {
-
+function rePopulateInput(event) {
+  outfitName.value = event.target.innerText;
 }
