@@ -101,7 +101,7 @@ function validateInput() {
 }
 
 function saveOutfit() {
-  var innerText = outfitName.value.replace(/\s/g, "")
+  var innerText = outfitName.value.replace(/\s/g, "").toUpperCase();
   var form = document.querySelector('form');
   event.preventDefault();
   closet.insertAdjacentHTML('afterbegin', `
@@ -191,4 +191,6 @@ function reDressBear(event) {
 
 function rePopulateInput(event) {
   outfitName.value = event.target.innerText;
+  saveButton.disabled = false;
+
 }
