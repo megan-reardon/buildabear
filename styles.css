@@ -321,7 +321,8 @@ p {
   height: 1em;
 }
 
-.close:hover {
+.close:hover,
+#save-button:hover {
   cursor: pointer;
 }
 
