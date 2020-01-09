@@ -2,7 +2,6 @@ var closet = document.querySelector('.saved-outfit');
 var outfitName = document.querySelector('input');
 var saveButton = document.querySelector('#save-button');
 var garmentSection = document.querySelector('.garment-option-container');
-var backgroundsSection = document.querySelector('.backgrounds');
 var allGarments = [];
 var id = Date.now(id);
 var outfit = new Outfit(id);
