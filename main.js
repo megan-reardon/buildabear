@@ -12,7 +12,6 @@ garmentSection.addEventListener('click', indicateButtonsAndDress);
 outfitName.addEventListener('keyup', validateInput);
 closet.addEventListener('click', savedOutfitHandler);
 
-
 // function that is invoked on page load to bring outfit cards from LS
 window.onload = function () {
     var savedGarments = window.localStorage.getItem('savedOutfits');
@@ -25,6 +24,7 @@ window.onload = function () {
     refreshSavedCards();
   };
 
+// handler function for closet section (where the saved cards pop up)
 function savedOutfitHandler(event) {
   removeSavedOutfitCard(event);
   reDressBear(event);
@@ -32,6 +32,7 @@ function savedOutfitHandler(event) {
   rePopulateInput(event);
 }
 
+//function that displays cards in the closet area on window load
 function refreshSavedCards() {
   for (var i = 0; i < allGarments.length; i++) {
     closet.insertAdjacentHTML('afterbegin', `
@@ -43,11 +44,15 @@ function refreshSavedCards() {
   }
 }
 
+//handler function for all the garment buttons
 function indicateButtonsAndDress() {
   runOutfitConditional(event.target.classList[1]);
   indicateActivateButton(event);
 }
 
+//function that handles what each button does and updates the outfit object it
+//also triggers a function that changes button styling from selected to unselected and vise versa.
+//it also fires a function that adds or removes images from hte bear
 function runOutfitConditional(classOfButton) {
   if (event.target.classList.contains(classOfButton)) {
     addGarments(event);
@@ -57,6 +62,7 @@ function runOutfitConditional(classOfButton) {
   }
 }
 
+//totally undresses the bear.
 function removeGarmentFromBear(garmentItem) {
   let garment = document.querySelectorAll(garmentItem);
   for (var i = 0; i < garment.length; i++) {
@@ -82,6 +88,7 @@ function updateObjectGarments() {
   }
 }
 
+  //adds or removes garments from the bear
 function addGarments(event) {
   let garment = document.querySelector(`#${event.target.dataset.id}`);
   var garmentsToDelete = `.${garment.classList[0]}`;
@@ -106,6 +113,8 @@ function validateInput() {
   }
 }
 
+// this function runs when the save outfit button is pressed it creates an
+//outfit card on the right side and also pushes allGarments array into Local Storage
 function createOutfitCard() {
   var innerText = outfitName.value.replace(/\s/g, "").toUpperCase();
   var form = document.querySelector('form');
@@ -122,6 +131,9 @@ function createOutfitCard() {
   location.reload();
 }
 
+// this function runs when save outfit button is pressed, it disables saved button,
+//pushes a new outfit into allGarments array, clears the bear of clothing, puts
+//buttons into unselected state and resets the form.
 function saveOutfit(form, innerText) {
   saveButton.disabled = true;
   outfit.title = innerText;
@@ -131,6 +143,7 @@ function saveOutfit(form, innerText) {
   form.reset();
 }
 
+//this functions takes all the images off the bear
 function clearOutfits() {
   let garments = document.querySelectorAll('.garment-image');
   for (var i = 0; i < garments.length; i++) {
@@ -138,6 +151,8 @@ function clearOutfits() {
   }
 }
 
+//this function puts a class of .selected-button on all of the garment buttons
+//to show that they are in a non active state
 function disableUnselectedButtons(button) {
   var disabledButton = document.querySelectorAll(button);
   for (var i = 0; i < disabledButton.length; i++) {
@@ -145,6 +160,8 @@ function disableUnselectedButtons(button) {
   }
 }
 
+//this function toggle class of .selected button on garment buttons to indicate
+//they status. This fuctions is dedicated to toggling only
 function indicateActivateButton(event) {
   if (event.target.classList.contains('selected-button')) {
     event.target.classList.remove('selected-button');
@@ -153,6 +170,10 @@ function indicateActivateButton(event) {
   }
 }
 
+//this function updates the array of allGarments when outfitcard is removed by user
+//it also puts the AllGarments array into local storage with updated information about
+//the removed object from allGarments array. it also sets all garment buttons to
+//unselected state.
 function removeSavedOutfitCard(event) {
   for (var i = 0; i < allGarments.length; i++) {
     if (event.target.classList.contains(`${allGarments[i].title}`)) {
@@ -167,6 +188,9 @@ function removeSavedOutfitCard(event) {
   }
 }
 
+
+//this function runs when you click on the outfit card to bring back all the images
+// on the bear
 function reDressBear(event) {
   clearOutfits();
   var garmentImages = document.querySelectorAll('.garment-image');
@@ -184,6 +208,8 @@ function reDressBear(event) {
   }
 }
 
+// this function dysplays when outfit card is pressed to display buttons
+// that correspond to the outfit.
 function reDisplaySelectedButtons(event) {
   disableUnselectedButtons('.button');
   var garmentButtons = document.querySelectorAll('.button');
@@ -201,6 +227,8 @@ function reDisplaySelectedButtons(event) {
   }
 }
 
+// this function runs when outfit card is pressed it puts the name of the outfit
+//back into the inputfield
 function rePopulateInput(event) {
   outfitName.value = event.target.innerText;
   saveButton.disabled = false;
