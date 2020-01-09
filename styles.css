@@ -321,6 +321,10 @@ p {
   height: 1em;
 }
 
+.close:hover {
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }
